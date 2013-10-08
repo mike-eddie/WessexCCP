@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Outcome:</b>
+  <%= @outcome.outcome %>
+</p>
+
+<p>
+  <b>Topic:</b>
+  <%= @outcome.topic_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_outcome_path(@outcome) %> |
+<%= link_to 'Back', outcomes_path %>

@@ -1,0 +1,26 @@
+<h1>My Attendance</h1>
+
+<br />
+
+
+ 	<table class = "table table-condensed">
+ 	  <tr>
+ 		<th>Date</th>
+ 		<th>Title</th>
+ 		<th>Certificate<th>
+ 	  </tr>
+	    <% me = @current_student %>
+	    <% me.attendances.each do |builder| %>
+	       <tr>
+	       	 <td><%= builder.teaching_session.date %></td>
+	         <td><%= builder.teaching_session.title %></td>
+	         <td><%= link_to 'View', attendance_path(builder,format: "pdf") %></td>
+	       </tr>
+	    <% end %>
+	</table>
+
+
+
+ 
+
+

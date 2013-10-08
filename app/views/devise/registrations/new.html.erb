@@ -1,0 +1,109 @@
+<h2>Sign up</h2>
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <h3>Login Details</h3>
+
+  <div class="form-inputs">
+
+    <%= f.input :email, :required => true, :autofocus => true %>
+    <%= f.input :password, :required => true %>
+    <%= f.input :password_confirmation, :required => true %>
+    <%= f.select :role, ["Student","Teacher","Admin"], :required => true %>
+  </div>
+
+  <h3>Profile</h3>
+  
+  <div id = "student_fields">
+    <%= f.simple_fields_for :student do |s| %>
+      <%= s.error_notification %>
+
+      <%= s.input :student_num %>
+      <%= s.input :fname %>
+      <%= s.input :lname %>
+      <%= s.input :university %>
+      <%= s.input :course %>
+      <%= s.input :year %>
+    <% end %>
+  </div>
+
+  <div id = "teacher_fields">
+    Teacher
+  </div>
+
+  <div id = "admin_fields">
+    Admin
+  </div>
+
+  <br />
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+
+<% end %>
+
+<br />
+
+<%= render "devise/shared/links" %>
+
+
+<! Javascript to show/hide specific fields for each role>
+
+
+<script>
+  $(document).ready(function(){
+     if($('#user_role').val() != "Student"){
+        $("#student_fields").css('display','none');
+     }
+     else{
+        $("#student_fields").css('display','block');
+     }
+
+     $('#user_role').change(function(){
+        if($(this).val() != "Student"){
+          $("#student_fields").css('display','none');
+        }
+        else{
+          $("#student_fields").css('display','block');
+        }
+     })
+  });
+
+  $(document).ready(function(){
+       if($('#user_role').val() != "Teacher"){
+          $("#teacher_fields").css('display','none');
+       }
+       else{
+          $("#teacher_fields").css('display','block');
+       }
+
+       $('#user_role').change(function(){
+          if($(this).val() != "Teacher"){
+            $("#teacher_fields").css('display','none');
+          }
+          else{
+            $("#teacher_fields").css('display','block');
+          }
+       })
+    });
+
+  $(document).ready(function(){
+     if($('#user_role').val() != "Admin"){
+        $("#admin_fields").css('display','none');
+     }
+     else{
+        $("#admin_fields").css('display','block');
+     }
+
+     $('#user_role').change(function(){
+        if($(this).val() != "Admin"){
+          $("#admin_fields").css('display','none');
+        }
+        else{
+          $("#admin_fields").css('display','block');
+        }
+     })
+  });
+</script>

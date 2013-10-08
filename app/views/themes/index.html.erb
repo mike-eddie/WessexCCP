@@ -1,0 +1,34 @@
+<h1>Themes</h1>
+
+<br />
+
+<table class="table table-condensed">
+  <tr>
+    <th><%= sortable "unit_id", "Unit" %></th>
+    <th><%= sortable "title", "Theme" %></th>
+    <th>Actions</th>
+  </tr>
+
+<% @themes.each do |theme| %>
+  <tr>
+    <td><%= theme.unit.title %></td>
+    <td><%= theme.title %></td>
+    <td>
+      <%= link_to 'Show', theme, class: "btn btn-default btn-xs" %>
+      <%= link_to 'Edit', edit_theme_path(theme), class: "btn btn-primary btn-xs" %>
+      <%= link_to 'Destroy', theme, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Theme', new_theme_path, class: "btn btn-success btn-sm" %>
+
+<h2>Import Themes</h2>
+<%= form_tag import_themes_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <br />
+  <%= submit_tag "Import", class: "btn btn-primary btn-sm"%>
+<% end %>

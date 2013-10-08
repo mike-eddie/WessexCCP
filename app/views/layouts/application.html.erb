@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WessexCCP</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<nav class="navbar navbar-default" role="navigation">
+	  <!-- Brand and toggle get grouped for better mobile display -->
+	  <div class="navbar-header">
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+	      <span class="sr-only">Toggle navigation</span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	    </button>
+	    <a class="navbar-brand" href="#">Wessex CCP</a>
+	  </div>
+
+	  <!-- Collect the nav links, forms, and other content for toggling -->
+	  <div class="collapse navbar-collapse navbar-ex1-collapse">
+	    <ul class="nav navbar-nav">
+	      <li><%= link_to "Home", root_path  %></li>
+	      <li class="dropdown">
+		    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
+		    <ul class="dropdown-menu">
+		      <li><%= link_to "My Attendance", portfolio_my_attendance_path %></li>
+		    </ul>
+		  </li>
+	      
+	      <% if admin? %>	
+		      <li class="dropdown">
+		        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Curriculum <b class="caret"></b></a>
+		        <ul class="dropdown-menu">
+		          <li><%= link_to "Units", units_path %></li>
+		          <li><%= link_to "Themes", themes_path %></li>
+		          <li><%= link_to "Topics", topics_path %></li>
+		          <li><%= link_to "Outcomes", outcomes_path %></li>
+		        </ul>
+		      </li>
+		      <li class="dropdown">
+		        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+		        <ul class="dropdown-menu">
+		          <li><%= link_to "Students", students_path %></li>
+		          <li><%= link_to "Teaching Sessions", teaching_sessions_path %></li>
+		          <li><%= link_to "Teaching Format", teaching_formats_path %></li>
+		          <li><%= link_to "Attendance", attendances_path %></li>
+		          <li><%= link_to "Completed Outcomes", completed_outcomes_path %></li>
+		        </ul>
+		      </li>
+		  <% end %>
+	    </ul>
+	    <ul class = "nav navbar-right">
+			<% if user_signed_in? %>
+				<p class="navbar-text">Signed in as <%= current_user.student.full_name %> (<%=current_user.role %>)</p>
+				<p class="navbar-text"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></p>
+			<% else %>
+				<button type="button" class="btn btn-info navbar-btn">Sign in</button>
+			<% end %>
+		
+		</ul>
+	  </div><!-- /.navbar-collapse -->
+	</nav>
+
+	<!-- flash notices -->
+
+	 <%= notice %>
+	 <%= alert %>
+	
+
+
+	<div class = "col-md-12">
+		<%= yield %>
+	</div>
+
+</body>
+</html>

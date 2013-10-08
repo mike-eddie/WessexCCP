@@ -1,0 +1,40 @@
+<h1>Teaching Sessions</h1>
+
+</br>
+
+<table class="table table-condensed">
+  <tr>
+    <th><%= sortable "id", "ID" %></th>
+    <th><%= sortable "title", "Title" %></th>
+    <th><%= sortable "date", "Date" %></th>
+    <th><%= sortable "teaching_format_id", "Teaching Type" %></th>
+    <th>Actions</th>
+  </tr>
+
+<% @teaching_sessions.each do |teaching_session| %>
+  <tr>
+    <td><%= teaching_session.id %></td>
+    <td><%= teaching_session.title %></td>
+    <td><%= teaching_session.date %></td>
+    <td><%= teaching_session.teaching_format[:format] %></td>
+    <td>
+      <%= link_to 'Show', teaching_session, class: "btn btn-default btn-xs" %>
+      <%= link_to 'Edit', edit_teaching_session_path(teaching_session), class: "btn btn-primary btn-xs" %>
+      <%= link_to 'Destroy', teaching_session, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-danger btn-xs"  %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Teaching session', new_teaching_session_path, class: "btn btn-success btn-sm" %>
+
+<br />
+
+<h2>Import Students</h2>
+<%= form_tag import_teaching_sessions_path, multipart: true do %>
+  <%= file_field_tag :file, class: "btn btn-default btn-sm" %>
+  </br>
+  <%= submit_tag "Import", class: "btn btn-primary btn-sm" %>
+<% end %>

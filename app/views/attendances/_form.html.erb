@@ -1,0 +1,14 @@
+<%= simple_form_for(@attendance) do |f| %>
+  <div class = <div class="alert alert-danger">
+  	<%= f.error_notification %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.input :student_id %>
+    <%= f.association :teaching_session, label_method: :title_and_date %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+  </div>
+<% end %>

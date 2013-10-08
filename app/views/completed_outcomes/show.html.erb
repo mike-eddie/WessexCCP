@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Teaching session:</b>
+  <%= @completed_outcome.teaching_session_id %>
+</p>
+
+<p>
+  <b>Outcome:</b>
+  <%= @completed_outcome.outcome_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_completed_outcome_path(@completed_outcome) %> |
+<%= link_to 'Back', completed_outcomes_path %>

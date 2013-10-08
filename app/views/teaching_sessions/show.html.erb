@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @teaching_session.title %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @teaching_session.date %>
+</p>
+
+<p>
+  <b>Format:</b>
+  <%= @teaching_session.format %>
+</p>
+
+
+<%= link_to 'Edit', edit_teaching_session_path(@teaching_session) %> |
+<%= link_to 'Back', teaching_sessions_path %>

@@ -1,0 +1,11 @@
+	<%= simple_form_for(@theme, :html => { :class => 'form-horizontal' }) do |f| %>
+	  <div class = <div class="alert alert-danger">
+	  	<%= f.error_notification %>
+	  </div>
+
+	  <%= f.input :title %> <br />
+
+	  <%= f.association :unit %> <br />
+
+	  <%= f.button :submit, :class => 'btn-primary' %> <br />
+	<% end %>

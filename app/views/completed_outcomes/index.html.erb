@@ -1,0 +1,27 @@
+<h1>Learning Outcomes per Teaching Session</h1>
+
+<br />
+
+<table class="table table-condensed">
+  <tr>
+    <th><%= sortable "teaching_session_id", "Teaching session" %></th>
+    <th><%= sortable "outcome_id", "Outcome" %></th>
+    <th>Actions</th>
+  </tr>
+
+<% @completed_outcomes.each do |completed_outcome| %>
+  <tr>
+    <td><%= completed_outcome.teaching_session_id %></td>
+    <td><%= completed_outcome.outcome_id %></td>
+    <td>
+      <%= link_to 'Show', completed_outcome, class: "btn btn-default btn-xs" %>
+      <%= link_to 'Edit', edit_completed_outcome_path(completed_outcome), class: "btn btn-primary btn-xs" %>
+      <%= link_to 'Destroy', completed_outcome, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Completed outcome', new_completed_outcome_path, class: "btn btn-success btn-sm" %>

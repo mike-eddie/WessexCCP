@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  teaching_session_id: MyString
+  outcome_id: MyString
+
+two:
+  teaching_session_id: MyString
+  outcome_id: MyString

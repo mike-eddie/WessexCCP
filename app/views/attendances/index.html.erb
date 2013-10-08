@@ -1,0 +1,58 @@
+<h1>Recorded attendances</h1>
+
+
+<br />
+
+<table class="table table-condensed">
+  <tr>
+    <th><%= sortable "student_id", "Student"%></th>
+    <th><%= sortable "teaching_session_id", "Teaching session"%></th>
+    <th>Actions</th>
+  </tr>
+
+<% @attendances.each do |attendance| %>
+  <tr>
+    <td><%= attendance.student_id %></td>
+    <td><%= attendance.teaching_session.title_and_date %></td>
+    <td>
+      <%= link_to 'Show', attendance, class: "btn btn-default btn-xs"  %>
+      <%= link_to 'Edit', edit_attendance_path(attendance), class: "btn btn-primary btn-xs"  %>
+      <%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs"  %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Attendance', new_attendance_path, class: "btn btn-success btn-sm"  %>
+
+<br />
+
+<h2>Import Topics</h2>
+
+  <%= form_tag import_attendances_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <br />
+    <%= submit_tag "Import", class: "btn btn-primary btn-sm" %>
+  <% end %>
+
+  
+
+<br />
+
+<h2>Attendance Register</h2>
+
+<% @teaching_sessions.each do |teaching_session| %>
+      <h4><%= teaching_session.title %></h3>
+
+      <br />
+     
+      <% teaching_session.students.each do |student| %>
+        <li><%= student.fname %> <%= student.lname %></li>
+      <% end %>
+
+       <br />
+           
+<% end %>
+

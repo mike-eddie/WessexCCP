@@ -1,0 +1,49 @@
+<h1>Registered Students</h1>
+
+<br />
+
+<table class="table table-condensed">
+  <tr>
+    <th><%= sortable "student_num", "Student ID" %></th>
+    <th><%= sortable "fname", "First Name" %></th>
+    <th><%= sortable "lname", "Last Name" %></th>
+    <th><%= sortable "university", "University" %></th>
+    <th><%= sortable "course", "Course" %></th>
+    <th><%= sortable "year", "Year" %></th>
+    <th><%= sortable "email", "Email" %></th>
+      <th>Actions</th>
+  </tr>
+
+<% @students.each do |student| %>
+  <tr>
+    <td><%= student.student_num %></td>
+    <td><%= student.fname %></td>
+    <td><%= student.lname %></td>
+    <td><%= student.university %></td>
+    <td><%= student.course %></td>
+    <td><%= student.year %></td>
+    <td><%= student.email %></td>
+
+    <td>
+      
+        <%= link_to 'Show', student, class: "btn btn-default btn-xs"%>
+      
+        <%= link_to 'Edit', edit_student_path(student), class: "btn btn-primary btn-xs" %>
+      
+        <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %>
+     
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Student', new_student_path, class: "btn btn-success btn-sm" %>
+
+<h2>Import Students</h2>
+<%= form_tag import_students_path, multipart: true do %>
+  <%= file_field_tag :file, class: "btn btn-default btn-sm" %>
+  </br>
+  <%= submit_tag "Import", class: "btn btn-primary btn-sm" %>
+<% end %>

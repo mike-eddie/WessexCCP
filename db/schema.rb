@@ -11,31 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131006090129) do
+ActiveRecord::Schema.define(:version => 20131008144339) do
 
   create_table "attendances", :force => true do |t|
     t.string   "student_id"
-    t.string   "teaching_session_id"
+    t.integer  "teaching_session_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
 
   create_table "completed_outcomes", :force => true do |t|
-    t.string   "teaching_session_id"
-    t.string   "outcome_id"
+    t.integer  "teaching_session_id"
+    t.integer  "outcome_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
 
-  create_table "formats", :force => true do |t|
-    t.string   "format"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "outcomes", :force => true do |t|
     t.text     "outcome"
-    t.string   "topic_id"
+    t.integer  "topic_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -70,14 +64,14 @@ ActiveRecord::Schema.define(:version => 20131006090129) do
 
   create_table "themes", :force => true do |t|
     t.string   "title"
-    t.string   "unit_id"
+    t.integer  "unit_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "topics", :force => true do |t|
     t.string   "title"
-    t.string   "theme_id"
+    t.integer  "theme_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -6,7 +6,7 @@ class CreateStudents < ActiveRecord::Migration
       t.string :lname
       t.string :university
       t.string :course
-      t.integer :year
+      t.string :year
       t.string :email
 
       t.timestamps

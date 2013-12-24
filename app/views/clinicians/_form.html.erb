@@ -1,0 +1,16 @@
+<%= simple_form_for(@clinician) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :fname %>
+    <%= f.input :lname %>
+    <%= f.input :email %>
+    <%= f.input :profession %>
+    <%= f.input :grade %>
+    <%= f.input :employer %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

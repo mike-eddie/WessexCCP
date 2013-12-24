@@ -1,18 +1,20 @@
 <h1>Listing teaching_formats</h1>
 
-<table class = "table-condensed">
+<table class = "table-condensed table-striped">
   <tr>
     <th>Format</th>
+    <th>Colour</th>
     <th>Actions</th>
   </tr>
 
 <% @teaching_formats.each do |teaching_format| %>
   <tr>
     <td><%= teaching_format.format %></td>
+    <td><%= teaching_format.colour %></td>
     <td>
-      <%= link_to 'Show', teaching_format, :class => "btn btn-default btn-xs" %>
-      <%= link_to 'Edit', edit_teaching_format_path(teaching_format), :class => "btn btn-primary btn-xs" %>
-      <%= link_to 'Destroy', teaching_format, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" %>
+      <%= link_to 'Show', teaching_format, :class => "btn btn-nephritis btn-xs" %>
+      <%= link_to 'Edit', edit_teaching_format_path(teaching_format), :class => "btn btn-river btn-xs" %>
+      <%= link_to 'Destroy', teaching_format, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-alizarin btn-xs" %>
     </td>
   </tr>
 <% end %>
@@ -20,4 +22,4 @@
 
 <br />
 
-<%= link_to 'New Teaching format', new_teaching_format_path, :class => "btn btn-success btn-sm" %>
+<%= link_to 'New Teaching format', new_teaching_format_path, :class => "btn btn-nephritis btn-sm" %>

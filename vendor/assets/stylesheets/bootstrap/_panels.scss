@@ -146,3 +146,27 @@
 .panel-info {
   @include panel-variant($panel-info-border, $panel-info-text, $panel-info-heading-bg, $panel-info-border);
 }
+
+.panel-orange {
+  @include panel-variant($panel-orange-border, $panel-orange-text, $panel-orange-heading-bg, $panel-orange-border);
+}
+
+.panel-alizarin {
+  @include panel-variant($panel-alizarin-border, $panel-alizarin-text, $panel-alizarin-heading-bg, $panel-alizarin-border);
+}
+
+.panel-emerald {
+  @include panel-variant($panel-emerald-border, $panel-emerald-text, $panel-emerald-heading-bg, $panel-emerald-border);
+}
+
+.panel-wisteria {
+  @include panel-variant($panel-wisteria-border, $panel-wisteria-text, $panel-wisteria-heading-bg, $panel-wisteria-border);
+}
+
+.panel-river {
+  @include panel-variant($panel-river-border, $panel-river-text, $panel-river-heading-bg, $panel-river-border);
+}
+
+.panel-midnight {
+  @include panel-variant($panel-midnight-border, $panel-midnight-text, $panel-midnight-heading-bg, $panel-midnight-border);
+}

@@ -3,7 +3,5 @@
 
 en:
   date:
-    order:
-      - :day
-      - :month
-      - :year
+    format:
+      default: "%d %m %Y"

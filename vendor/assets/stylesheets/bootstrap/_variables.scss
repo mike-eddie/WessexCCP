@@ -24,6 +24,31 @@ $brand-warning:         #f0ad4e !default;
 $brand-danger:          #d9534f !default;
 $brand-info:            #5bc0de !default;
 
+
+// Flat UI Colours
+// -------------------------
+
+$brand-turquoise:       #1abc9c !default;
+$brand-greensea:        #16a085 !default;
+$brand-emerald:         #2ecc71 !default;
+$brand-nephritis:       #27ae60 !default;
+$brand-river:           #3498db !default;
+$brand-belieze:     	#2980b9 !default;
+$brand-amethyst:        #9b59b6 !default;
+$brand-wisteria:        #8e44ad !default;
+$brand-asphalt:      	#34495e !default;
+$brand-midnight:        #2c3e50 !default;
+$brand-sun:     		#f1c40f !default;
+$brand-orange:     		#f39c12 !default;
+$brand-carrot:     		#e67e22 !default;
+$brand-pumpkin:     	#d35400 !default;
+$brand-alizarin:     	#e74c3c !default;
+$brand-pomegranate:     #c0392b !default;
+$brand-clouds:     		#ecf0f1 !default;
+$brand-silver:     		#bdc3c7 !default;
+$brand-concrete:     	#95a5a6 !default;
+$brand-asbestos:     	#7f8c8d !default;
+
 // Scaffolding
 // -------------------------
 
@@ -39,7 +64,7 @@ $link-hover-color:      darken($link-color, 15%) !default;
 // Typography
 // -------------------------
 
-$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif:  "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
@@ -82,7 +107,7 @@ $border-radius-base:             4px !default;
 $border-radius-large:            6px !default;
 $border-radius-small:            3px !default;
 
-$component-active-bg:            $brand-primary !default;
+$component-active-bg:            #e74c3c !default;
 
 $caret-width-base:               4px !default;
 $caret-width-large:              5px !default;
@@ -131,6 +156,90 @@ $btn-info-bg:                    $brand-info !default;
 $btn-info-border:                darken($btn-info-bg, 5%) !default;
 
 $btn-link-disabled-color:        $gray-light !default;
+
+// Custom Buttons
+// --------------------------
+
+$btn-turquoise-color:          #fff !default;
+$btn-turquoise-bg:             $brand-turquoise !default;
+$btn-turquoise-border:         darken($btn-turquoise-bg, 5%) !default;
+
+$btn-greensea-color:          #fff !default;
+$btn-greensea-bg:             $brand-greensea !default;
+$btn-greensea-border:         darken($btn-greensea-bg, 5%) !default;
+
+$btn-emerald-color:          #fff !default;
+$btn-emerald-bg:             $brand-emerald !default;
+$btn-emerald-border:         darken($btn-emerald-bg, 5%) !default;
+
+$btn-nephritis-color:          #fff !default;
+$btn-nephritis-bg:             $brand-nephritis !default;
+$btn-nephritis-border:         darken($btn-nephritis-bg, 5%) !default;
+
+$btn-river-color:          #fff !default;
+$btn-river-bg:             $brand-river !default;
+$btn-river-border:         darken($btn-river-bg, 5%) !default;
+
+$btn-belieze-color:          #fff !default;
+$btn-belieze-bg:             $brand-belieze !default;
+$btn-belieze-border:         darken($btn-belieze-bg, 5%) !default;
+
+$btn-amethyst-color:          #fff !default;
+$btn-amethyst-bg:             $brand-amethyst !default;
+$btn-amethyst-border:         darken($btn-amethyst-bg, 5%) !default;
+
+$btn-wisteria-color:          #fff !default;
+$btn-wisteria-bg:             $brand-wisteria !default;
+$btn-wisteria-border:         darken($btn-wisteria-bg, 5%) !default;
+
+$btn-asphalt-color:          #fff !default;
+$btn-asphalt-bg:             $brand-asphalt !default;
+$btn-asphalt-border:         darken($btn-asphalt-bg, 5%) !default;
+
+$btn-midnight-color:          	#fff !default;
+$btn-midnight-bg:             	$brand-midnight !default;
+$btn-midnight-border:         	darken($btn-midnight-bg, 5%) !default;
+
+$btn-sun-color:          		#fff !default;
+$btn-sun-bg:             		$brand-sun !default;
+$btn-sun-border:         		darken($btn-sun-bg, 5%) !default;
+
+$btn-orange-color:          #fff !default;
+$btn-orange-bg:             $brand-orange !default;
+$btn-orange-border:         darken($btn-orange-bg, 5%) !default;
+
+$btn-carrot-color:          #fff !default;
+$btn-carrot-bg:             $brand-carrot !default;
+$btn-carrot-border:         darken($btn-carrot-bg, 5%) !default;
+
+$btn-pumpkin-color:          #fff !default;
+$btn-pumpkin-bg:             $brand-pumpkin !default;
+$btn-pumpkin-border:         darken($btn-pumpkin-bg, 5%) !default;
+
+$btn-alizarin-color:          #fff !default;
+$btn-alizarin-bg:             $brand-alizarin !default;
+$btn-alizarin-border:         darken($btn-alizarin-bg, 5%) !default;
+
+$btn-pomegranate-color:          #fff !default;
+$btn-pomegranate-bg:             $brand-pomegranate !default;
+$btn-pomegranate-border:         darken($btn-pomegranate-bg, 5%) !default;
+
+$btn-clouds-color:          #fff !default;
+$btn-clouds-bg:             $brand-clouds !default;
+$btn-clouds-border:         darken($btn-clouds-bg, 5%) !default;
+
+$btn-silver-color:          #fff !default;
+$btn-silver-bg:             $brand-silver !default;
+$btn-silver-border:         darken($btn-silver-bg, 5%) !default;
+
+$btn-concrete-color:          #fff !default;
+$btn-concrete-bg:             $brand-concrete !default;
+$btn-concrete-border:         darken($btn-concrete-bg, 5%) !default;
+
+$btn-asbestos-color:          #fff !default;
+$btn-asbestos-bg:             $brand-asbestos !default;
+$btn-asbestos-border:         darken($btn-asbestos-bg, 5%) !default;
+
 
 
 // Forms
@@ -378,6 +487,29 @@ $state-info-text:                #3a87ad !default;
 $state-info-bg:                  #d9edf7 !default;
 $state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%) !default;
 
+$state-orange-text:             #ededed !default;
+$state-orange-bg:               $brand-orange !default;
+$state-orange-border:           darken(adjust-hue($state-orange-bg, -10), 5%) !default;
+
+$state-wisteria-text:             #ededed !default;
+$state-wisteria-bg:               $brand-wisteria !default;
+$state-wisteria-border:           darken(adjust-hue($state-wisteria-bg, -10), 5%) !default;
+
+$state-river-text:             #ededed !default;
+$state-river-bg:               $brand-river !default;
+$state-river-border:           darken(adjust-hue($state-river-bg, -10), 5%) !default;
+
+$state-midnight-text:             #ededed !default;
+$state-midnight-bg:               $brand-midnight !default;
+$state-midnight-border:           darken(adjust-hue($state-midnight-bg, -10), 5%) !default;
+
+$state-alizarin-text:             #ededed !default;
+$state-alizarin-bg:               $brand-alizarin !default;
+$state-alizarin-border:           darken(adjust-hue($state-alizarin-bg, -10), 5%) !default;
+
+$state-emerald-text:             #ededed !default;
+$state-emerald-bg:               $brand-emerald !default;
+$state-emerald-border:           darken(adjust-hue($state-emerald-bg, -10), 5%) !default;
 
 // Tooltips
 // -------------------------
@@ -517,6 +649,30 @@ $panel-info-text:             $state-info-text !default;
 $panel-info-border:           $state-info-border !default;
 $panel-info-heading-bg:       $state-info-bg !default;
 
+$panel-orange-text:             $state-orange-text !default;
+$panel-orange-border:           $state-orange-border !default;
+$panel-orange-heading-bg:       $state-orange-bg !default;
+
+$panel-alizarin-text:             $state-alizarin-text !default;
+$panel-alizarin-border:           $state-alizarin-border !default;
+$panel-alizarin-heading-bg:       $state-alizarin-bg !default;
+
+$panel-emerald-text:             $state-emerald-text !default;
+$panel-emerald-border:           $state-emerald-border !default;
+$panel-emerald-heading-bg:       $state-emerald-bg !default;
+
+$panel-river-text:             $state-river-text !default;
+$panel-river-border:           $state-river-border !default;
+$panel-river-heading-bg:       $state-river-bg !default;
+
+$panel-midnight-text:             $state-midnight-text !default;
+$panel-midnight-border:           $state-midnight-border !default;
+$panel-midnight-heading-bg:       $state-midnight-bg !default;
+
+$panel-wisteria-text:             $state-wisteria-text !default;
+$panel-wisteria-border:           $state-wisteria-border !default;
+$panel-wisteria-heading-bg:       $state-wisteria-bg !default;
+
 
 // Thumbnails
 // -------------------------
@@ -538,7 +694,7 @@ $well-bg:                     #f5f5f5 !default;
 // -------------------------
 $badge-color:                 #fff !default;
 $badge-link-hover-color:      #fff !default;
-$badge-bg:                    $gray-light !default;
+$badge-bg:                    $brand-alizarin !default;
 
 $badge-active-color:          $link-color !default;
 $badge-active-bg:             #fff !default;

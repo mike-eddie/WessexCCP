@@ -1,4 +1,7 @@
 class PortfolioController < ApplicationController
+
+  before_filter :redirect_to_profile
+  
   def my_attendance
 
   	@outcomes = Outcome.all
@@ -9,6 +12,7 @@ class PortfolioController < ApplicationController
   	@attendances = Attendance.all
   	@teaching_sessions = TeachingSession.all
   	@completed_outcomes = CompletedOutcome.all
+    @formats = TeachingFormat.all
     
     
     @current_student = current_user.student

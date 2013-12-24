@@ -1,7 +1,18 @@
 WessexCCP::Application.routes.draw do
-  get "portfolio/my_attendance"
+  resources :articles
 
-  resources :completed_outcomes
+
+  get "registration/profile"
+
+  resources :clinicians do
+    collection { post :profile_complete }
+  end
+
+
+  resources :faculties
+
+
+  get "portfolio/my_attendance"
 
 
   devise_for :users, :controllers => { :registrations => "users/registrations" }
@@ -25,7 +36,7 @@ WessexCCP::Application.routes.draw do
 
 
   resources :students do
-    collection { post :import }
+    collection { post :import, :profile_complete }
   end
 
 
@@ -48,9 +59,10 @@ WessexCCP::Application.routes.draw do
     collection { post :import }
   end
 
-  get "pages/Home"
+  get "pages/home"
+  get "pages/curriculum"
 
-  root :to => "pages#Home"
+  root :to => "pages#home"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

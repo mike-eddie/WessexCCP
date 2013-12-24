@@ -2,6 +2,7 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
 
+  before_filter :redirect_to_profile
   before_filter :authorize
   
   helper_method :sort_column, :sort_direction

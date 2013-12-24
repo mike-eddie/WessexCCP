@@ -2,6 +2,7 @@ class TeachingSessionsController < ApplicationController
   # GET /teaching_sessions
   # GET /teaching_sessions.json
   
+  before_filter :redirect_to_profile
   before_filter :authorize
 
   helper_method :sort_column, :sort_direction

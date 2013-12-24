@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  content: MyText
+  btn: false
+  btntext: MyString
+  btnlink: MyString
+  date: 2013-12-22
+  colour: MyString
+
+two:
+  title: MyString
+  content: MyText
+  btn: false
+  btntext: MyString
+  btnlink: MyString
+  date: 2013-12-22
+  colour: MyString

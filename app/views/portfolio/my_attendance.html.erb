@@ -2,23 +2,32 @@
 
 <br />
 
-
- 	<table class = "table table-condensed">
- 	  <tr>
- 		<th>Date</th>
- 		<th>Title</th>
- 		<th>Certificate<th>
- 	  </tr>
-	    <% me = @current_student %>
-	    <% me.attendances.each do |builder| %>
-	       <tr>
-	       	 <td><%= builder.teaching_session.date %></td>
-	         <td><%= builder.teaching_session.title %></td>
-	         <td><%= link_to 'View', attendance_path(builder,format: "pdf") %></td>
-	       </tr>
-	    <% end %>
-	</table>
-
+<% formats = @formats %>
+<% me = @current_student %>
+   
+    <% formats.each do |n| %>
+    	<div class = "panel panel-<%= n.colour %>">
+    	<div class = "panel-heading"><h3 class = "panel-title"><%= n.format %>s</h3></div>
+    	<div class = "panel-body">
+    	<table class = "table table-condensed">
+	 	  <tr>
+	 		<th>Date</th>
+	 		<th>Title</th>
+	 		<th>Certificate<th>
+	 	  </tr>
+    	<% me.attendances.each do |builder| %>
+	    	<% if builder.teaching_session.teaching_format.format == n.format %>
+		       <tr>
+		       	 <td><%= builder.teaching_session.date %></td>
+		         <td><%= builder.teaching_session.title %></td>
+		         <td><%= link_to 'View', attendance_path(builder,format: "pdf"), class: "btn btn-belieze btn-xs" %></td>
+		       </tr>
+		    <% end %>
+		<% end %>
+	   </table>
+	</div>
+	</div>
+	<% end %>
 
 
  

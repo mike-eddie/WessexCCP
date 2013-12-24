@@ -1,8 +1,8 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   
+
   def new
     resource = build_resource({})
-    resource.build_student
     respond_with resource
   end
 
@@ -13,5 +13,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update
   	super
   end
+
+  def after_sign_up_path_for(resource)
+    '/registration/profile'
+  end
+
   
 end

@@ -2,6 +2,7 @@ class UnitsController < ApplicationController
   # GET /units
   # GET /units.json
 
+  before_filter :redirect_to_profile
   before_filter :authorize
 
   def index

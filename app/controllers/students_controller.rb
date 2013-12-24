@@ -2,7 +2,6 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
 
-  before_filter :authorize
 
   helper_method :sort_column, :sort_direction
 
@@ -49,7 +48,7 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Student details were successfully created.' }
         format.json { render json: @student, status: :created, location: @student }
       else
         format.html { render action: "new" }
@@ -92,6 +91,40 @@ class StudentsController < ApplicationController
       redirect_to students_path, notice: "Students imported."
     rescue => e
       redirect_to students_path, notice: "Please select a file to import"
+    end
+  end
+
+  def profile_complete
+    
+    if current_user.complete = false
+
+        @student = Student.new(params[:student])
+        @student.user.complete = true
+
+        respond_to do |format|
+          if @student.save
+            format.html { redirect_to root_path, notice: 'Student details were successfully created.' }
+            format.json { render json: @student, status: :created, location: @student }
+          else
+            format.html { render action: "new" }
+            format.json { render json: @student.errors, status: :unprocessable_entity }
+          end
+        end
+
+    else
+
+      @student = current_user.student
+      @student.user.complete = true
+
+      respond_to do |format|
+        if @student.update_attributes(params[:student])
+          format.html { redirect_to @student, notice: 'Student was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @student.errors, status: :unprocessable_entity }
+        end
+      end
     end
   end
 

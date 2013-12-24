@@ -2,6 +2,7 @@ class CompletedOutcomesController < ApplicationController
   # GET /completed_outcomes
   # GET /completed_outcomes.json
 
+  before_filter :redirect_to_profile
   before_filter :authorize
 
   helper_method :sort_column, :sort_direction

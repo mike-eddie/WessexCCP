@@ -5,10 +5,16 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+   
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
-	<nav class="navbar navbar-default" role="navigation">
+	
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 	  <!-- Brand and toggle get grouped for better mobile display -->
 	  <div class="navbar-header">
 	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -17,30 +23,41 @@
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
 	    </button>
-	    <a class="navbar-brand" href="#">Wessex CCP</a>
+	    
+	    <a class="navbar-brand" href=<%= root_path %> >Wessex CCP Portal</a>
 	  </div>
-
 	  <!-- Collect the nav links, forms, and other content for toggling -->
-	  <div class="collapse navbar-collapse navbar-ex1-collapse">
-	    <ul class="nav navbar-nav">
-	      <li><%= link_to "Home", root_path  %></li>
-	      <li class="dropdown">
-		    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
-		    <ul class="dropdown-menu">
-		      <li><%= link_to "My Attendance", portfolio_my_attendance_path %></li>
-		    </ul>
-		  </li>
-	      
-	      <% if admin? %>	
-		      <li class="dropdown">
+	  	<% if registration_complete? %>
+	  	<div class="collapse navbar-collapse navbar-ex1-collapse">
+	    	<ul class="nav navbar-nav">
+	      	<li><%= link_to "Home", root_path  %></li>
+	      	<li><%= link_to "News", articles_path  %></li>
+	      	
+
+	      	 <li class="dropdown">
 		        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Curriculum <b class="caret"></b></a>
 		        <ul class="dropdown-menu">
-		          <li><%= link_to "Units", units_path %></li>
-		          <li><%= link_to "Themes", themes_path %></li>
-		          <li><%= link_to "Topics", topics_path %></li>
-		          <li><%= link_to "Outcomes", outcomes_path %></li>
+		          <li><%= link_to "Curriculum", pages_curriculum_path  %></li>
+		          <% if admin? %>
+		          	<li><%= link_to "Units", units_path %></li>
+		          	<li><%= link_to "Themes", themes_path %></li>
+		          	<li><%= link_to "Topics", topics_path %></li>
+		          	<li><%= link_to "Outcomes", outcomes_path %></li>
+		          <% end %>
 		        </ul>
 		      </li>
+
+			<% if student? %>
+		      	<li class="dropdown">
+			    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <span class="badge badge-important">4</span> <b class="caret"></b></a>
+			    <ul class="dropdown-menu">
+			      <li><%= link_to "My Attendance", portfolio_my_attendance_path %></li>
+			    </ul>
+			  	</li>
+			<% end %>
+
+
+	      	<% if admin? %>	
 		      <li class="dropdown">
 		        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
 		        <ul class="dropdown-menu">
@@ -48,33 +65,53 @@
 		          <li><%= link_to "Teaching Sessions", teaching_sessions_path %></li>
 		          <li><%= link_to "Teaching Format", teaching_formats_path %></li>
 		          <li><%= link_to "Attendance", attendances_path %></li>
-		          <li><%= link_to "Completed Outcomes", completed_outcomes_path %></li>
+		          <!--<li>< link_to "Completed Outcomes", completed_outcomes_path %></li> -->
 		        </ul>
 		      </li>
 		  <% end %>
 	    </ul>
-	    <ul class = "nav navbar-right">
-			<% if user_signed_in? %>
-				<p class="navbar-text">Signed in as <%= current_user.student.full_name %> (<%=current_user.role %>)</p>
-				<p class="navbar-text"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></p>
+	    <ul class = "nav navbar-nav navbar-right">
+			<% if student? %>
+
+			<li class="dropdown">
+		        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= image_tag(("avatar.png"), :class => "avatar")%> <%= current_user.student.full_name %><b class="caret"></b></a>
+		        <ul class="dropdown-menu">
+		          <li><a href="#"><i class="fa fa-envelope fa-fw"></i> Messages    <span class="badge badge-important">4</span></a></li>
+		          <li><a href="/registration/profile"><i class="fa fa-user fa-fw"></i></span> Profile</a></li>
+		          <li>
+		          	<%= link_to destroy_user_session_path, method: :delete do %>
+  						<i class="fa fa-sign-out fa-fw"></i> Sign Out
+					<% end %>
+		        </ul>
+		      </li>
+			
 			<% else %>
-				<button type="button" class="btn btn-info navbar-btn">Sign in</button>
+				
+			   <p class="navbar-text"><%= link_to "Sign in", root_path, class: "btn btn-alizarin btn-xs" %></p>
+				<p class="navbar-text"><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-alizarin btn-xs" %></p>
 			<% end %>
-		
+			<% end %>
 		</ul>
-	  </div><!-- /.navbar-collapse -->
+	  </div>
+	</div><!-- /.navbar-collapse -->
 	</nav>
 
 	<!-- flash notices -->
-
-	 <%= notice %>
-	 <%= alert %>
-	
-
-
-	<div class = "col-md-12">
-		<%= yield %>
+	<div class="container">
+  		<% flash.each do |name, msg| %>
+    	<div class="alert alert-<%= name == :notice ? "success" : "danger" %>">
+      		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      		<%= msg  %>
+    		</div>
+  		<% end %>
+  		<!-- Rest of content -->
 	</div>
+
+	
+		<div class = "col-md-12">
+			<%= yield %>
+		</div>
+	
 
 </body>
 </html>

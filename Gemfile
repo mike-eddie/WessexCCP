@@ -38,6 +38,14 @@ gem 'rails_12factor', group: :production
 
 gem 'taps'
 
+gem 'bootstrap-wysihtml5-rails'
+
+gem 'google-api-client'
+
+gem 'gcal4ruby'
+
+gem 'surveyor'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -77,6 +77,89 @@
   @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
 }
 
+// Custom buttons
+// -------------------------
+
+.btn-turquoise {
+  @include button-variant($btn-turquoise-color, $btn-turquoise-bg, $btn-turquoise-border);
+}
+
+.btn-greensea {
+  @include button-variant($btn-greensea-color, $btn-greensea-bg, $btn-greensea-border);
+}
+
+.btn-emerald {
+  @include button-variant($btn-emerald-color, $btn-emerald-bg, $btn-emerald-border);
+}
+
+.btn-nephritis {
+  @include button-variant($btn-nephritis-color, $btn-nephritis-bg, $btn-nephritis-border);
+}
+
+.btn-river {
+  @include button-variant($btn-river-color, $btn-river-bg, $btn-river-border);
+}
+
+.btn-belieze {
+  @include button-variant($btn-belieze-color, $btn-belieze-bg, $btn-belieze-border);
+}
+
+.btn-amethyst {
+  @include button-variant($btn-amethyst-color, $btn-amethyst-bg, $btn-amethyst-border);
+}
+
+.btn-wisteria {
+  @include button-variant($btn-wisteria-color, $btn-wisteria-bg, $btn-wisteria-border);
+}
+
+.btn-asphalt {
+  @include button-variant($btn-asphalt-color, $btn-asphalt-bg, $btn-asphalt-border);
+}
+
+.btn-midnight {
+  @include button-variant($btn-midnight-color, $btn-midnight-bg, $btn-midnight-border);
+}
+
+.btn-sun {
+  @include button-variant($btn-sun-color, $btn-sun-bg, $btn-sun-border);
+}
+
+.btn-orange {
+  @include button-variant($btn-orange-color, $btn-orange-bg, $btn-orange-border);
+}
+
+.btn-carrot {
+  @include button-variant($btn-carrot-color, $btn-carrot-bg, $btn-carrot-border);
+}
+
+.btn-alizarin {
+  @include button-variant($btn-alizarin-color, $btn-alizarin-bg, $btn-alizarin-border);
+}
+
+.btn-pomegranate {
+  @include button-variant($btn-pomegranate-color, $btn-pomegranate-bg, $btn-pomegranate-border);
+}
+
+.btn-clouds {
+  @include button-variant($btn-clouds-color, $btn-clouds-bg, $btn-clouds-border);
+}
+
+.btn-silver {
+  @include button-variant($btn-silver-color, $btn-silver-bg, $btn-silver-border);
+}
+
+.btn-concrete {
+  @include button-variant($btn-concrete-color, $btn-concrete-bg, $btn-concrete-border);
+}
+
+.btn-asbestos {
+  @include button-variant($btn-asbestos-color, $btn-asbestos-bg, $btn-asbestos-border);
+}
+
+.btn-pumpkin {
+  @include button-variant($btn-pumpkin-color, $btn-pumpkin-bg, $btn-pumpkin-border);
+}
+
 
 // Link buttons
 // -------------------------
@@ -158,4 +241,3 @@ input[type="button"] {
     width: 100%;
   }
 }
-

@@ -1,0 +1,17 @@
+<%= simple_form_for @clinician, :url => { :action => 'profile_complete', :controller => "clinicians"}, :method => "post" do |c| %>
+  <%= c.error_notification %>
+
+    <%= c.input :fname, :label => "First Name" %><br />
+    <%= c.input :lname, :label => "Last Name" %><br />
+    <%= c.input :email %><br />
+    <%= c.input :profession %><br />
+    <%= c.input :grade %><br />
+    <%= c.input :employer %><br />
+    <%= c.input :user_id %>
+
+
+   <div class="form-actions">
+      <%= c.button :submit, "Complete Profile", class: "btn btn-nephritis btn-block" %>
+    </div>
+
+<% end %>

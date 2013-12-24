@@ -1,0 +1,25 @@
+      <%= simple_form_for @student, :url => { :action => 'profile_complete', :controller => "students"}, :method => "post" do |s| %>
+               
+          <%= s.error_notification %>
+
+          <%= s.input :student_num, :required => true, :label => "Student Number", :placeholder => "Student number -including library digit" %><br />
+               
+          <%= s.input :fname, :required => true, :label => "First Name", :placeholder => "First name" %><br />
+               
+          <%= s.input :lname, :required => true, :label => "Last Name", :placeholder => "Last name" %><br />
+               
+          <%= s.input :university, :label => "University", :collection => ["University of Southampton","University of Portsmouth"], :required => true%><br />
+               
+          <%= s.input :course, :label => "Course", :collection => ["Medicine BM4", "Medicine BM5", "Medicine BM6", "Adult Nursing", "Child Nursing", "Mental Health Nursing", "Dual Field - Adult and Child", "Dual Field - Adult and Mental Health", "Paramedic Science", "Midwifery", "Other"]  ,:required => true %><br />
+               
+          <%= s.input :year, :label => "Year", :collection => ["0","1","2","3","4","5","Intercalated"], :required => true %><br />
+
+          <%= s.input :user_id %>
+
+          <div class="form-actions">
+               <%= s.button :submit, "Complete Profile", :class => 'btn btn-nephritis btn-block' %>
+          </div>
+
+     <% end %>
+
+

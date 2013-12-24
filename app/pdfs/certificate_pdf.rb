@@ -15,8 +15,14 @@ class CertificatePdf < Prawn::Document
     	move_down(20)
     	text "Attended the " "#{@attendance.teaching_session.title}" + " " + "#{@attendance.teaching_session.teaching_format.format}", size: 20, :align => :center
     	move_down(20)
-    	text "On " "#{@attendance.teaching_session.date}", size: 20, :align => :center
+    	text "On " "#{longdate(@attendance.teaching_session.date)}", size: 20, :align => :center
 
 
 	end
+
+	def longdate(date)
+  		d = Date.parse(date.to_s).strftime("%A %d %B, %Y").to_s
+  		return d
+	end
+	
 end

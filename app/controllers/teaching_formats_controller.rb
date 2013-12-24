@@ -1,7 +1,8 @@
 class TeachingFormatsController < ApplicationController
   # GET /teaching_formats
   # GET /teaching_formats.json
-
+  
+  before_filter :redirect_to_profile
   before_filter :authorize
   
   def index

@@ -1,0 +1,35 @@
+<h1>Clinicial Faculty</h1>
+
+<br />
+
+<table class = "table table-condensed table-striped">
+  <tr>
+    <th><%= sortable "fname", "First Name" %></th>
+    <th><%= sortable "lname", "Last Name" %></th>
+    <th><%= sortable "email", "email" %></th>
+    <th><%= sortable "profession", "Profession" %></th>
+    <th><%= sortable "grade", "Grade" %></th>
+    <th><%= sortable "employer", "Employer" %></th>
+    <th>Actions</th>
+  </tr>
+
+<% @clinicians.each do |clinician| %>
+  <tr>
+    <td><%= clinician.fname %></td>
+    <td><%= clinician.lname %></td>
+    <td><%= clinician.email %></td>
+    <td><%= clinician.profession %></td>
+    <td><%= clinician.grade %></td>
+    <td><%= clinician.employer %></td>
+    <td>
+        <%= link_to 'Show', clinician, class: "btn btn-nephritis btn-xs" %>
+        <%= link_to 'Edit', edit_clinician_path(clinician), class: "btn btn-river btn-xs" %>
+        <%= link_to 'Destroy', clinician, method: :delete, data: { confirm: 'Are you sure?', class: "btn btn-alizarin btn-xs" } %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Clinician', new_clinician_path, class: "btn btn-nephritis" %>

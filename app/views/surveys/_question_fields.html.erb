@@ -1,0 +1,19 @@
+<div class = "nested-fields">
+	<div class = "row">
+		<div class = "col-md-7">
+  			<%= f.input :text, label: "Question" %><br/>
+  		</div>
+		<div class = "col-md-2">
+  			<%= f.input :qtype, label: "Question Type", :collection => ["Free Text","Number","Yes/No"] %>
+  		</div>
+  		<div class = "col-md-1">
+  			<br />
+  			<%= f.input :required, :as => :boolean, inline_label: "Required?", label: false %>
+  		</div>
+  		<div class = "col-md-2" align="center">
+  			<br />
+  			<%= link_to_remove_association "Delete", f, :class => "btn btn-alizarin btn-sm"  %>
+  		</div>
+	</div>
+	<br />
+</div>

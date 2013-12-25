@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Student num:</b>
+  <%= @response.student_num %>
+</p>
+
+<p>
+  <b>Question:</b>
+  <%= @response.question_id %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @response.text %>
+</p>
+
+<p>
+  <b>String:</b>
+  <%= @response.string %>
+</p>
+
+<p>
+  <b>Boolean:</b>
+  <%= @response.boolean %>
+</p>
+
+<p>
+  <b>Integer:</b>
+  <%= @response.integer %>
+</p>
+
+
+<%= link_to 'Edit', edit_response_path(@response) %> |
+<%= link_to 'Back', responses_path %>

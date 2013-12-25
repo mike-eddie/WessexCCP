@@ -1,0 +1,16 @@
+<%= simple_form_for(@response) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :student_num %>
+    <%= f.input :question_id %>
+    <%= f.input :text %>
+    <%= f.input :string %>
+    <%= f.input :boolean %>
+    <%= f.input :integer %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

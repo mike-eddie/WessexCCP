@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  student_num: MyString
+  question_id: 1
+  text: MyText
+  string: MyString
+  boolean: false
+  integer: 1
+
+two:
+  student_num: MyString
+  question_id: 1
+  text: MyText
+  string: MyString
+  boolean: false
+  integer: 1

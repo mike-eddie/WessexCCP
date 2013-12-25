@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap-wysihtml5/b3
 //= require bootstrap/bootstrap
+//= require cocoon
 
 

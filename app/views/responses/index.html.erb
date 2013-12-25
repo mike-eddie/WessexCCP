@@ -1,0 +1,33 @@
+<h1>Listing responses</h1>
+
+<table>
+  <tr>
+    <th>Student num</th>
+    <th>Question</th>
+    <th>Text</th>
+    <th>String</th>
+    <th>Boolean</th>
+    <th>Integer</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @responses.each do |response| %>
+  <tr>
+    <td><%= response.student_num %></td>
+    <td><%= response.question_id %></td>
+    <td><%= response.text %></td>
+    <td><%= response.string %></td>
+    <td><%= response.boolean %></td>
+    <td><%= response.integer %></td>
+    <td><%= link_to 'Show', response %></td>
+    <td><%= link_to 'Edit', edit_response_path(response) %></td>
+    <td><%= link_to 'Destroy', response, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Response', new_response_path %>

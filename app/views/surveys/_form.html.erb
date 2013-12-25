@@ -1,0 +1,35 @@
+<div class = "row">
+    <div class = "col-md-1"></div>
+    <div class = "col-md-10"><div class = "panel panel-midnight">
+      <div class = "panel-heading"><h3 class = "panel-title">Survey</h3></div>
+      <div class = "panel-body">
+
+        <%= simple_form_for(@survey) do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+            <%= f.association :teaching_session, label_method: :title_and_date %> <br/>
+          </div>
+
+          <div id ="questions">
+            <%= f.simple_fields_for :questions do |question| %>
+              <% render 'question_fields', :f => question %>
+            <% end %>
+          </div>
+
+          <br />
+
+          <div class ="links">
+            <%= link_to_add_association 'Add Question', f, :questions, :class => "btn btn-river btn-sm" %>
+          </div>
+
+          <br />
+
+          <div class="form-actions">
+            <%= f.button :submit, :class => "btn btn-nephritis btn-sm"  %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+</div>

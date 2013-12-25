@@ -42,6 +42,7 @@ GEM
       railties (>= 3.0)
     builder (3.0.4)
     cancan (1.6.10)
+    cocoon (1.2.5)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -213,6 +214,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-wysihtml5-rails
   cancan
+  cocoon
   coffee-rails (~> 3.2.1)
   debugger
   devise

@@ -4,6 +4,7 @@ class TeachingSession < ActiveRecord::Base
   has_many :attendances
   has_many :students, through: :attendances
   has_many :completed_outcomes
+  has_one :survey
   belongs_to :teaching_format
 
   def self.import(file)

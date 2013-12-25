@@ -1,4 +1,13 @@
 WessexCCP::Application.routes.draw do
+  resources :responses
+
+
+  resources :questions
+
+
+  resources :surveys
+
+
   resources :articles
 
 

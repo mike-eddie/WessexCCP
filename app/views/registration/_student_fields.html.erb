@@ -14,7 +14,7 @@
                
           <%= s.input :year, :label => "Year", :collection => ["0","1","2","3","4","5","Intercalated"], :required => true %><br />
 
-          <%= s.input :user_id %>
+          <%= s.hidden_field :user_id %>
 
           <div class="form-actions">
                <%= s.button :submit, "Complete Profile", :class => 'btn btn-nephritis btn-block' %>

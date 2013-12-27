@@ -1,4 +1,23 @@
-<h1>My Attendance</h1>
+<h1>My Certificates & Feedback</h1>
+
+<br />
+
+<% if fb_waiting > 0 %>
+<div class="alert alert-info">
+	<div class = "row">
+		<div class = "col-md-1" align = "center">
+			<h1><i class = "fa fa-user-md"></i></h1>
+		</div>
+		<div class = "col-md-7">
+			<h5><br />
+				<strong>Information:</strong>
+				You have <%= fb_waiting %> feedback questionairre<% if fb_waiting > 1 %>s<%end%> waiting for completion. <br />
+				You will need to complete these before you can access the certificates for this teaching.
+			</h5>
+		</div>
+	</div>
+</div>
+<% end %>
 
 <br />
 
@@ -11,16 +30,31 @@
     	<div class = "panel-body">
     	<table class = "table table-condensed">
 	 	  <tr>
-	 		<th>Date</th>
-	 		<th>Title</th>
-	 		<th>Certificate<th>
+	 		<th width = "10%">Date</th>
+	 		<th width = "10%">Title</th>
+	 		<th width = "10%">Feedback & Certificates </th>
 	 	  </tr>
     	<% me.attendances.each do |builder| %>
 	    	<% if builder.teaching_session.teaching_format.format == n.format %>
 		       <tr>
 		       	 <td><%= builder.teaching_session.date %></td>
 		         <td><%= builder.teaching_session.title %></td>
-		         <td><%= link_to 'View', attendance_path(builder,format: "pdf"), class: "btn btn-belieze btn-xs" %></td>
+
+		         <td>
+		            <% if builder.fb_complete != true %>
+		         	  	<% if builder.teaching_session.survey.nil?  %>
+		         	  		Awaiting Feedback
+		         	  	<% else %>
+		         	  		<%= link_to "Feedback", 
+		         	  		    new_completed_survey_path(:student_num => me.student_num,
+		         	  								  :survey_id => builder.teaching_session.survey.id), 
+		         	  		    class: "btn btn-wisteria btn-xs"  %>
+		         	  	<% end %>
+		         	<% else %>
+		         		<%= link_to 'Certificate', attendance_path(builder,format: "pdf"), class: "btn btn-belieze btn-xs" %>
+		         	<% end %>
+		         </td>
+
 		       </tr>
 		    <% end %>
 		<% end %>
@@ -28,8 +62,3 @@
 	</div>
 	</div>
 	<% end %>
-
-
- 
-
-

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  survey_id: 1
+  student_num: MyString
+  complete: false
+
+two:
+  survey_id: 1
+  student_num: MyString
+  complete: false

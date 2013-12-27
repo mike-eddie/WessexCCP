@@ -1,0 +1,27 @@
+<h1>Listing completed_surveys</h1>
+
+<table>
+  <tr>
+    <th>Survey</th>
+    <th>Student num</th>
+    <th>Complete</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @completed_surveys.each do |completed_survey| %>
+  <tr>
+    <td><%= completed_survey.survey_id %></td>
+    <td><%= completed_survey.student_num %></td>
+    <td><%= completed_survey.complete %></td>
+    <td><%= link_to 'Show', completed_survey %></td>
+    <td><%= link_to 'Edit', edit_completed_survey_path(completed_survey) %></td>
+    <td><%= link_to 'Destroy', completed_survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Completed survey', new_completed_survey_path %>

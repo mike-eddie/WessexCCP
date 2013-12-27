@@ -96,8 +96,7 @@ class StudentsController < ApplicationController
 
   def profile_complete
     
-    if current_user.complete = false
-
+    if current_user.complete != true
         @student = Student.new(params[:student])
         @student.user.complete = true
 
@@ -118,7 +117,7 @@ class StudentsController < ApplicationController
 
       respond_to do |format|
         if @student.update_attributes(params[:student])
-          format.html { redirect_to @student, notice: 'Student was successfully updated.' }
+          format.html { redirect_to pages_home_path, notice: 'Profile was successfully updated.' }
           format.json { head :no_content }
         else
           format.html { render action: "edit" }

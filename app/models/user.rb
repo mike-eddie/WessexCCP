@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :role, :complete, :student_attributes, :clinician_attributes
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :role, :avatar, :complete, :student_attributes, :clinician_attributes
   # attr_accessible :title, :body
 
   has_one :student, :inverse_of => :user, :autosave => true
@@ -16,4 +16,9 @@ class User < ActiveRecord::Base
 
   validates :role, presence: true
 
+  has_attached_file :avatar, 
+      :styles => {:medium => "100x100>", :small => "40x40" },
+      :path => ":rails_root/app/assets/images/:attachment/:id/:style/:filename",
+      :default_url => 'avatar_missing.png',
+      :url => "/assets/:attachment/:id/:style/:filename"
 end

@@ -18,6 +18,8 @@ class PagesController < ApplicationController
     })
 
     @list = @events.sort_by &:start_time
+
+
   end
 
   def curriculum

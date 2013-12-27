@@ -1,18 +1,17 @@
 <div class = "nested-fields">
 	<div class = "row">
-		<div class = "col-md-7">
+		  <div class = "col-md-1">
+        <%= f.input :qorder, label: "Q." %>
+      </div>
+    <div class = "col-md-7">
   			<%= f.input :text, label: "Question" %><br/>
   		</div>
 		<div class = "col-md-2">
-  			<%= f.input :qtype, label: "Question Type", :collection => ["Free Text","Number","Yes/No"] %>
-  		</div>
-  		<div class = "col-md-1">
-  			<br />
-  			<%= f.input :required, :as => :boolean, inline_label: "Required?", label: false %>
+  			<%= f.input :qtype, label: "Question Type", :collection => ["Excellent-Poor","Long Answer", "Short Answer","Number","Yes/No"] %>
   		</div>
   		<div class = "col-md-2" align="center">
-  			<br />
-  			<%= link_to_remove_association "Delete", f, :class => "btn btn-alizarin btn-sm"  %>
+  			<%= f.input :required, :as => :boolean, inline_label: "Required?", label: false %>
+        <%= link_to_remove_association "Delete", f, :class => "btn btn-alizarin btn-xs"  %>
   		</div>
 	</div>
 	<br />

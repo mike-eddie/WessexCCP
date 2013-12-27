@@ -1,0 +1,32 @@
+<h1>Feedback#complete</h1>
+<p>Find me in app/views/feedback/complete.html.erb</p>
+
+<%= @student.fname %>
+<%= @survey.teaching_session.title_and_date %>
+
+<br />
+
+<h1>Questions</h1>
+
+<br / >
+
+<%= simple_form_for(@completed_survey) do |f| %>
+  <div class = <div class="alert alert-danger">
+    <%= f.error_notification %>
+  </div>
+
+  <% @questions.each do |q| %>
+	<%= q.text %><br />
+	
+	<<%= f.simple_fields_for :responses do |response| %>
+        <% render 'response', :f => response, :question_id => q.id, :student_num => @student.student_num %>
+    <% end %>
+  
+  <% end %> 
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+  </div>
+<% end %>
+
+

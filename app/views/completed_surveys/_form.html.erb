@@ -1,0 +1,25 @@
+    <%= simple_form_for(@completed_survey) do |f| %>
+      <%= f.error_notification %>
+    
+      <div class="form-inputs">
+        <%= f.hidden_field :survey_id %>
+        <%= f.hidden_field :student_num %>
+        <%= f.hidden_field :complete %>
+      </div>
+    
+      <h2>Questions</h2><br />
+      <% @questions.order("qorder asc").each do |q| %>
+    	<h4><%= q.text %></h4><br />
+    
+    	<%= f.simple_fields_for :responses do |builder| %>
+    		<% render 'response', :r => builder, :question_id => q.id, :student_num => @student.student_num, :qtype => q.qtype%>
+    	<% end %>
+    
+      <% end %>
+
+      <br />
+    
+      <div class="form-actions">
+        <%= f.button :submit, :class => "btn btn-nephritis" %>
+      </div>
+    <% end %>

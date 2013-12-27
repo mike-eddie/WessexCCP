@@ -7,6 +7,17 @@ class ApplicationController < ActionController::Base
   helper_method :student?
   helper_method :teacher?
   helper_method :registration_complete?
+  helper_method :fb_waiting
+
+  def fb_waiting
+  	  if student?
+   		@current_student = current_user.student
+   		@fb_waiting = @current_student.attendances.where("fb_complete = true")
+   	 	count = (@current_student.attendances.count() - @fb_waiting.count()) 
+   	 	return count
+  	  end
+  end
+
 
 	protected
 

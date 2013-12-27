@@ -1,4 +1,9 @@
 WessexCCP::Application.routes.draw do
+  get "feedback/complete"
+
+  resources :completed_surveys
+
+
   resources :responses
 
 

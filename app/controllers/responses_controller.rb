@@ -1,6 +1,9 @@
 class ResponsesController < ApplicationController
   # GET /responses
   # GET /responses.json
+
+  before_filter :redirect_to_profile
+  
   def index
     @responses = Response.all
 

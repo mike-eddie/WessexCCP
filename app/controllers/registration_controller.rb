@@ -5,10 +5,11 @@ class RegistrationController < ApplicationController
   	@user = current_user
 
 
-  	if @user.complete = false
+  	if @user.complete != true
 
-		@student = Student.new
+		  @student = Student.new
   		@student.user_id = current_user.id
+      
 
   		@clinician = Clinician.new
   		@clinician.user_id = current_user.id

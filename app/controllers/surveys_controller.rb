@@ -1,6 +1,9 @@
 class SurveysController < ApplicationController
   # GET /surveys
   # GET /surveys.json
+
+  before_filter :redirect_to_profile
+
   def index
     @surveys = Survey.all
 

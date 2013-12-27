@@ -1,6 +1,6 @@
 <h2>Sign up</h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name) , html: {multipart: true}) do |f| %>
   <%= f.error_notification %>
 
   <h3>Login Details</h3>
@@ -19,19 +19,9 @@
         <br />
         <%= f.input :password_confirmation, :required => true, :placeholder => "Confirm Password" %>
         <br />
+        <%= f.input :avatar %>
+        <br />
         <%= f.input :role, :label => "I am a:", :collection => ["Student","Teacher","Admin"], :required => true %>
-      </div>
-
-      <h3>Profile</h3>
-  
-      <div id = "student_fields">
-      </div>
-
-      <div id = "teacher_fields">
-      </div>
-
-      <div id = "admin_fields">
-        Admin
       </div>
 
       <br />
@@ -50,65 +40,3 @@
   </div>
   </div>
   </div>
-
-
-<! Javascript to show/hide specific fields for each role>
-
-
-<script>
-  
-
-  $(document).ready(function(){
-     if($('#user_role').val() != "Student"){
-        $("#student_fields").css('display','none');
-     }
-     else{
-        $("#student_fields").css('display','block');
-     }
-
-     $('#user_role').change(function(){
-        if($(this).val() != "Student"){
-          $("#student_fields").css('display','none');
-        }
-        else{
-          $("#student_fields").css('display','block');
-        }
-     })
-  });
-
-  $(document).ready(function(){
-       if($('#user_role').val() != "Teacher"){
-          $("#teacher_fields").css('display','none');
-       }
-       else{
-          $("#teacher_fields").css('display','block');
-       }
-
-       $('#user_role').change(function(){
-          if($(this).val() != "Teacher"){
-            $("#teacher_fields").css('display','none');
-          }
-          else{
-            $("#teacher_fields").css('display','block');
-          }
-       })
-    });
-
-  $(document).ready(function(){
-     if($('#user_role').val() != "Admin"){
-        $("#admin_fields").css('display','none');
-     }
-     else{
-        $("#admin_fields").css('display','block');
-     }
-
-     $('#user_role').change(function(){
-        if($(this).val() != "Admin"){
-          $("#admin_fields").css('display','none');
-        }
-        else{
-          $("#admin_fields").css('display','block');
-        }
-     })
-  });
-</script>

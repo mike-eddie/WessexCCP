@@ -1,0 +1,31 @@
+<div class="form-inputs">
+
+    <%= r.hidden_field :student_num, :value => student_num %>
+    <%= r.hidden_field :question_id, :value => question_id %>
+
+    <% if qtype == "Long Answer" %>
+    	<%= r.input :text, :input_html => { :rows => 5 }, :label => false %>
+        <br />
+    <% end %>
+
+    <% if qtype == "Short Answer" %>
+    	<%= r.input :string, :label => false %>
+        <br />
+    <% end %>
+
+    <% if qtype == "Yes/No" %>
+    	<%= r.input :string, collection: ["Yes", "No"], :label => false  %>
+        <br />
+    <% end %>
+
+    <% if qtype == "Number" %>
+    	<%= r.input :integer, :label => false %>
+        <br />
+    <% end %>
+
+    <% if qtype == "Excellent-Poor" %>
+        <%= r.input :string, collection: ["Excellent", "Very Good", "Average", "Poor", "Very Poor"], :label => false  %>
+        <br />
+    <% end %>
+
+</div>

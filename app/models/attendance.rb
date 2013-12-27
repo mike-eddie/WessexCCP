@@ -1,10 +1,11 @@
 class Attendance < ActiveRecord::Base
-  attr_accessible :student_num, :teaching_session_id, :student_id
+  attr_accessible :student_num, :teaching_session_id, :student_id, :fb_complete, :feedback_id
 
   belongs_to :student
   belongs_to :teaching_session
 
   has_many :completed_outcomes
+  has_one :completed_survey
 
   def self.import(file)
   	CSV.foreach(file.path, headers: true) do |row|

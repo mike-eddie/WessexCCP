@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131224224500) do
+ActiveRecord::Schema.define(:version => 20131227190025) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(:version => 20131224224500) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.boolean  "fb_complete"
-    t.string   "feedback_id"
+    t.string   "completed_survey_id"
   end
 
   create_table "clinicians", :force => true do |t|
@@ -47,11 +47,27 @@ ActiveRecord::Schema.define(:version => 20131224224500) do
     t.integer  "user_id"
   end
 
+  create_table "complete_surveys", :force => true do |t|
+    t.integer  "survey_id"
+    t.string   "student_num"
+    t.boolean  "complete"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "completed_outcomes", :force => true do |t|
     t.integer  "teaching_session_id"
     t.integer  "outcome_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+  end
+
+  create_table "completed_surveys", :force => true do |t|
+    t.integer  "survey_id"
+    t.string   "student_num"
+    t.boolean  "complete"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "faculties", :force => true do |t|
@@ -73,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20131224224500) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "qtype"
+    t.integer  "qorder"
   end
 
   create_table "responses", :force => true do |t|
@@ -82,8 +99,9 @@ ActiveRecord::Schema.define(:version => 20131224224500) do
     t.string   "string"
     t.boolean  "boolean"
     t.integer  "integer"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.integer  "completed_survey_id"
   end
 
   create_table "students", :id => false, :force => true do |t|
@@ -118,6 +136,7 @@ ActiveRecord::Schema.define(:version => 20131224224500) do
     t.datetime "updated_at",         :null => false
     t.string   "format"
     t.integer  "teaching_format_id"
+    t.integer  "survey_id"
   end
 
   create_table "themes", :force => true do |t|
@@ -155,6 +174,10 @@ ActiveRecord::Schema.define(:version => 20131224224500) do
     t.datetime "updated_at",                             :null => false
     t.string   "role"
     t.boolean  "complete"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

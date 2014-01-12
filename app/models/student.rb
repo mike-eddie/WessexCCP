@@ -8,10 +8,17 @@ class Student < ActiveRecord::Base
 
   has_many :attendances
   has_many :teaching_sessions, through: :attendances
+  has_many :responses
 
   has_many :completed_outcomes
 
-  validates :student_num, presence: true, length: { is: 9, :message => "Please make sure your student number is 9 characters long and includes the library digit" }
+  validates :student_num, presence: true, uniqueness: true
+  
+  validates :student_num, format: {
+    with: /\A[U][P]\d{6}\z|\A\d{9}\z/,
+    message: 'Please ensure you have entered your student number in the correct format'
+  }
+
   validates :fname, presence: true
   validates :lname, presence: true
   validates :university, presence: true

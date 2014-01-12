@@ -12,12 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.datepicker
-//= require jquery.ui.slider
 //= require bootstrap-wysihtml5/b3
 //= require bootstrap/bootstrap
 //= require cocoon
-
-$("input.date_picker").datepicker();
+//= require_tree .
 
 

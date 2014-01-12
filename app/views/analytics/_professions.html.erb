@@ -1,0 +1,43 @@
+<div id="profchartdiv" style="width: 100%; height: 500px;"></div>
+
+<script type="text/javascript">
+	var profpiechart;
+	var legend;
+	
+	var profpiechartData = [
+	    {
+	        "category": "Medics",
+	        "count": <%= Attendance.at_event(@survey.teaching_session.id).of_profession(MEDICS).count %>
+	    },
+	    {
+	        "category": "Nurses",
+	        "count": <%= Attendance.at_event(@survey.teaching_session.id).of_profession(NURSES).count %>
+	    },
+	    {
+	        "category": "Paramedics",
+	        "count": <%= Attendance.at_event(@survey.teaching_session.id).of_profession(PARAMEDICS).count %>
+	    }
+	];
+	
+	AmCharts.ready(function () {
+	    // PIE CHART
+	    profpiechart = new AmCharts.AmPieChart();
+	    profpiechart.dataProvider = profpiechartData;
+	    profpiechart.titleField = "category";
+	    profpiechart.valueField = "count";
+	    profpiechart.outlineColor = "#FFFFFF";
+	    profpiechart.outlineAlpha = 0.8;
+	    profpiechart.outlineThickness = 2;
+	    profpiechart.balloonText = "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>";
+	    profpiechart.colors = ["#e74c3c", "#349edb", "#27ae60"]
+	    
+	    // WRITE
+	    profpiechart.write("profchartdiv");
+
+	    
+	});
+
+</script>
+
+
+

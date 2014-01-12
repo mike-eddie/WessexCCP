@@ -42,6 +42,7 @@ GEM
       railties (>= 3.0)
     builder (3.0.4)
     cancan (1.6.10)
+    chartkick (1.2.1)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.3)
@@ -72,6 +73,8 @@ GEM
     extlib (0.9.16)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    faraday_middleware (0.9.0)
+      faraday (>= 0.7.4, < 0.9)
     gcal4ruby (0.5.5)
       gdata4ruby (>= 0.1.5)
     gdata4ruby (0.1.5)
@@ -200,6 +203,9 @@ GEM
     warden (1.2.3)
       rack (>= 1.0)
     will_paginate (3.0.5)
+    zero_push (2.0.0)
+      faraday (~> 0.8.5)
+      faraday_middleware (~> 0.9.0)
 
 PLATFORMS
   ruby
@@ -207,6 +213,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-wysihtml5-rails
   cancan
+  chartkick
   cocoon
   coffee-rails (~> 3.2.1)
   debugger
@@ -226,3 +233,4 @@ DEPENDENCIES
   taps
   uglifier (>= 1.0.3)
   will_paginate (~> 3.0)
+  zero_push

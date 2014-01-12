@@ -51,6 +51,14 @@ class CompletedSurveysController < ApplicationController
   # POST /completed_surveys
   # POST /completed_surveys.json
   def create
+    notification = {
+        device_tokens: ["45DC0C40541AB72A5F5470A21B1590A2E738C91B53EFAE4984CC1F0589028254"],
+        alert: "Something really awesome just happened!!",
+        sound: "default",
+        badge: 1
+      }
+      ZeroPush.notify(notification)
+
     @completed_survey = CompletedSurvey.new(params[:completed_survey])
     @completed_survey.complete = true
     @completed_survey.save

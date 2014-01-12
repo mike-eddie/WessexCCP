@@ -1,0 +1,27 @@
+<div class = "row">
+    <div class = "col-md-1"></div>
+    <div class = "col-md-10"><div class = "panel panel-midnight">
+      <div class = "panel-heading"><h3 class = "panel-title"><%= @survey.teaching_session.title_and_date %></h3></div>
+      <div class = "panel-body">
+      	<h1><%=@survey.teaching_session.title %> - Feedback</h1><br />
+
+      	<h2>Demographics</h2><br />
+      	
+      	<%= render 'demographics' %>
+
+      	<h2>Feedback</h2><br />
+
+		<% @questions.each do |q| %>
+	
+			<h4><%= q.text %></h4><br />
+
+  			<%= render q.qtype.downcase.tr(" /", "_") , :q => q.id%> <!-- Render partial based on question type -->
+			<br />
+
+		<% end %>
+	  </div>
+	</div>
+</div>
+
+
+

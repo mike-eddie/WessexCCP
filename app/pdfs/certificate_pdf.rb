@@ -21,7 +21,7 @@ class CertificatePdf < Prawn::Document
 	end
 
 	def longdate(date)
-  		d = Date.parse(date.to_s).strftime("%A %d %B, %Y").to_s
+  		d = Date.parse(date.to_s).strftime("%A #{date.day.ordinalize} %B, %Y").to_s #Monday 10th October, 2013
   		return d
 	end
 	

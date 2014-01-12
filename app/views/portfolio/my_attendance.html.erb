@@ -37,7 +37,7 @@
     	<% me.attendances.each do |builder| %>
 	    	<% if builder.teaching_session.teaching_format.format == n.format %>
 		       <tr>
-		       	 <td><%= builder.teaching_session.date %></td>
+		       	 <td><%= shortdate(builder.teaching_session.date) %></td>
 		         <td><%= builder.teaching_session.title %></td>
 
 		         <td>

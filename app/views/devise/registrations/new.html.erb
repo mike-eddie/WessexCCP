@@ -19,7 +19,7 @@
         <br />
         <%= f.input :password_confirmation, :required => true, :placeholder => "Confirm Password" %>
         <br />
-        <%= f.input :avatar %>
+        <%= f.input :avatar, :label => "Profile Picture" %>
         <br />
         <%= f.input :role, :label => "I am a:", :collection => ["Student","Teacher","Admin"], :required => true %>
       </div>

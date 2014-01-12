@@ -7,6 +7,10 @@ class Attendance < ActiveRecord::Base
   has_many :completed_outcomes
   has_one :completed_survey
 
+  scope :of_profession, lambda { |p| {:include => :student, :conditions => { :students => { :course => p}}}}
+  scope :at_event, lambda { |e| {:include => :teaching_session, :conditions => { :teaching_sessions => { :id => e}}}}
+  scope :in_year, lambda { |y| {:include => :student, :conditions => { :students => { :year => y}}}}
+
   def self.import(file)
   	CSV.foreach(file.path, headers: true) do |row|
     	Attendance.create! row.to_hash

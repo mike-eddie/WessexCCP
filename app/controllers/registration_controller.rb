@@ -22,9 +22,12 @@ class RegistrationController < ApplicationController
   		@clinician = @user.clinician
 
   	end
- 
 
+  end
 
+  def edit_profile
+    @user = current_user
+    @student = @user.student
   end
 
 end

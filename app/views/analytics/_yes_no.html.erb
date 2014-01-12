@@ -1,0 +1,36 @@
+
+
+<div id="piechartdiv" style="width: 100%; height: 362px;"></div>
+
+<script type="text/javascript">
+var piechart;
+var legend;
+
+var piechartData = [
+    {
+        "category": "Yes",
+        "count": <%= Response.to_question(q).string("Yes").count %>
+    },
+    {
+        "category": "No",
+        "count": <%= Response.to_question(q).string("No").count %>
+    }
+];
+
+AmCharts.ready(function () {
+    // PIE CHART
+    piechart = new AmCharts.AmPieChart();
+    piechart.dataProvider = piechartData;
+    piechart.titleField = "category";
+    piechart.valueField = "count";
+    piechart.outlineColor = "#FFFFFF";
+    piechart.outlineAlpha = 0.8;
+    piechart.outlineThickness = 2;
+    piechart.balloonText = "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>";
+    piechart.colors = ["#27ae60","#e74c3c"]
+    
+    // WRITE
+    piechart.write("piechartdiv");
+});
+
+</script>

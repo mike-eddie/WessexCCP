@@ -5,7 +5,8 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <link rel="apple-touch-icon" href="[:railsroot]/assets/images/apple-touch-icon.png">
+
+
 
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
    
@@ -90,19 +91,14 @@
 
 		        	<%= current_user.student.full_name %><b class="caret"></b></a>
 		        <ul class="dropdown-menu">
-		          <li><a href="#"><i class="fa fa-envelope fa-fw"></i> Messages    <span class="badge badge-important">4</span></a></li>
-		          <li><a href="/registration/profile"><i class="fa fa-user fa-fw"></i></span> Profile</a></li>
+		          <li><a href="/registration/edit_profile"><i class="fa fa-user fa-fw"></i></span> Edit Profile</a></li>
+		          <li><a href="/users/edit"><i class="fa fa-edit fa-fw"></i></span> Edit Account</a></li>
 		          <li>
 		          	<%= link_to destroy_user_session_path, method: :delete do %>
   						<i class="fa fa-sign-out fa-fw"></i> Sign Out
 					<% end %>
 		        </ul>
 		      </li>
-			
-			<% else %>
-				
-			   <p class="navbar-text"><%= link_to "Sign in", root_path, class: "btn btn-alizarin btn-xs" %></p>
-				<p class="navbar-text"><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-alizarin btn-xs" %></p>
 			<% end %>
 			<% end %>
 		</ul>

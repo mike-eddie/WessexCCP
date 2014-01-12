@@ -1,4 +1,6 @@
 WessexCCP::Application.routes.draw do
+  get "analytics/feedback"
+
   get "feedback/complete"
 
   resources :completed_surveys
@@ -17,6 +19,7 @@ WessexCCP::Application.routes.draw do
 
 
   get "registration/profile"
+  get "registration/edit_profile"
 
   resources :clinicians do
     collection { post :profile_complete }

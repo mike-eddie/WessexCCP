@@ -1,29 +1,56 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class = "row">
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= f.error_notification %>
+  <div class = "col-md-3"></div>
+  
+  <div class = "col-md-6">
 
-  <div class="form-inputs">
-    <%= f.input :email, :required => true, :autofocus => true %>
+    <div class = "panel panel-midnight">
+       <div class = "panel-heading"><h3 class = "panel-title">Change your account details</h3></div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+       <div class = "panel-body">
 
-    <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
-    <%= f.input :password_confirmation, :required => false %>
-    <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
+          <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+            <%= f.error_notification %>
+          
+            <div class="form-inputs">
+              <h3>Email address & Password</h3>
+              <%= f.input :email, :required => true, :autofocus => true %>
+          
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+              <% end %>
+          
+              <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
+              <%= f.input :password_confirmation, :required => false %>
 
-    <%= f.input :role, :required => false %>
+              <br /><h3>Profile Picture</h3>
+
+              <%= f.input :avatar, :label => "Profile Picture" %>
+
+              <h3>Confirm changes</h3>
+
+              <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
+          
+              <%= f.hidden_field :role, :required => false %>
+            </div>
+          
+            <div class="form-actions">
+              <%= f.button :submit, "Update", class:  "btn btn-nephritis" %>
+            </div>
+          <% end %>
+          
+          <h3>Cancel my account</h3>
+          
+          <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-alizarin" %></p>
+          
+          <%= link_to "Back", :back %>
+
+        </div>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
+  <div class = "col-md-3"></div>
 
-<h3>Cancel my account</h3>
+</div>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
 
-<%= link_to "Back", :back %>

@@ -1,0 +1,100 @@
+<div id="yearschart" style="width: 100%; height: 400px;"></div>
+
+<script type="text/javascript">
+	
+	var ychart;
+
+var ychartData = [{
+    "category": "Year 1",
+      "medics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(1).of_profession(MEDICS).count %>,
+      "nurses": <%= Attendance.at_event(@survey.teaching_session.id).in_year(1).of_profession(NURSES).count %>,
+      "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(1).of_profession(PARAMEDICS).count %>
+}, {
+    "category": "Year 2",
+      "medics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(2).of_profession(MEDICS).count %>,
+      "nurses": <%= Attendance.at_event(@survey.teaching_session.id).in_year(2).of_profession(NURSES).count %>,
+      "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(2).of_profession(PARAMEDICS).count %>
+}, {
+    "category": "Year 3",
+      "medics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(3).of_profession(MEDICS).count %>,
+      "nurses": <%= Attendance.at_event(@survey.teaching_session.id).in_year(3).of_profession(NURSES).count %>,
+      "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(3).of_profession(PARAMEDICS).count %>
+}, {
+    "category": "Year 4",
+      "medics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(4).of_profession(MEDICS).count %>,
+      "nurses": <%= Attendance.at_event(@survey.teaching_session.id).in_year(4).of_profession(NURSES).count %>,
+      "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(4).of_profession(PARAMEDICS).count %>
+}, {
+    "category": "Year 5",
+     "medics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(5).of_profession(MEDICS).count %> ,
+     "nurses": <%= Attendance.at_event(@survey.teaching_session.id).in_year(5).of_profession(NURSES).count %>,
+     "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(5).of_profession(PARAMEDICS).count %>
+}];
+
+
+AmCharts.ready(function () {
+    // SERIAL CHART
+    ychart = new AmCharts.AmSerialChart();
+    ychart.dataProvider = ychartData;
+    ychart.categoryField = "category";
+    ychart.startDuration = 1;
+    ychart.plotAreaBorderColor = "#DADADA";
+    ychart.plotAreaBorderAlpha = 0;
+   
+
+    // AXES
+    // Category
+    var ycategoryAxis = ychart.categoryAxis;
+    ycategoryAxis.gridPosition = "start";
+    ycategoryAxis.gridAlpha = 0;
+    ycategoryAxis.axisAlpha = 0;
+
+    // Value
+    var yvalueAxis = new AmCharts.ValueAxis();
+    yvalueAxis.axisAlpha = 0;
+    yvalueAxis.gridAlpha = 0;
+    yvalueAxis.position = "left";
+    ychart.addValueAxis(yvalueAxis);
+
+    // GRAPHS
+    // first graph
+    var ymedics = new AmCharts.AmGraph();
+    ymedics.type = "column";
+    ymedics.title = "Medics";
+    ymedics.valueField = "medics";
+    ymedics.balloonText = "Medics ([[category]]):[[value]]";
+    ymedics.lineAlpha = 0;
+    ymedics.fillColors = "#e74c3c";
+    ymedics.fillAlphas = 1;
+    ychart.addGraph(ymedics);
+
+    // second graph
+    var ynurses = new AmCharts.AmGraph();
+    ynurses.type = "column";
+    ynurses.title = "Nurses";
+    ynurses.valueField = "nurses";
+    ynurses.balloonText = "Nurses ([[category]]):[[value]]";
+    ynurses.lineAlpha = 0;
+    ynurses.fillColors = "#349edb";
+    ynurses.fillAlphas = 1;
+    ychart.addGraph(ynurses);
+
+     // second graph
+    var yparamedics = new AmCharts.AmGraph();
+    yparamedics.type = "column";
+    yparamedics.title = "Paramedics";
+    yparamedics.valueField = "paramedics";
+    yparamedics.balloonText = "Paramedics ([[category]]):[[value]]";
+    yparamedics.lineAlpha = 0;
+    yparamedics.fillColors = "#27ae60";
+    yparamedics.fillAlphas = 1;
+    ychart.addGraph(yparamedics);
+
+    // LEGEND
+    var ylegend = new AmCharts.AmLegend();
+    ychart.addLegend(ylegend);
+
+    // WRITE
+    ychart.write("yearschart");
+});
+</script>

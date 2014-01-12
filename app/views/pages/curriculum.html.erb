@@ -38,32 +38,6 @@
 
 <br />
 
-<% @students.each do |student| %>
-
-  <ul><li><%= student.fname %> <%= student.lname %></li>
-  <% student.attendances.each do |attendance| %>
-
-    <ul><li><%= attendance.teaching_session.title_and_date %></li>
-    <% attendance.teaching_session.completed_outcomes.each do |outcome| %>
-      <ul><li><%= outcome.outcome.outcome %></li></ul>
-    <% end %></ul>
-
-  <% end %></ul>
-
-<% end %>
-
-<br />
-
-  <% begin %>
-    <% n = @current_student %>
-    <%= n.fname %>
-    <% n.attendances.each do |xyz| %>
-      <ul><li> <%= xyz.teaching_session.title_and_date %> </li></ul>
-    <% end %>
-  <% rescue => e %>
-    <div class="alert alert-danger"><strong>Warning:</strong> User not found</div>
-  <% end %> 
-
 
 
 

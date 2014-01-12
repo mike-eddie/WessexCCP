@@ -50,6 +50,11 @@ gem 'cocoon'
 
 gem "paperclip", "~> 3.0"
 
+gem 'zero_push'
+
+gem "chartkick"
+
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

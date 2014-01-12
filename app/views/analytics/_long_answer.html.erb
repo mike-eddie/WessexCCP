@@ -1,0 +1,63 @@
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Medical Students
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+          <ul class="list-group">
+          	<% @responses = Response.to_question(q).of_profession(MEDICS) %>
+
+          	<% @responses.each do |r| %>
+				<li class="list-group-item"><%= r.text %></li>
+			<% end %>
+		  </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          Nursing Students
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse in">
+      <div class="panel-body">
+          <ul class="list-group">
+          	<% @responses = Response.to_question(q).of_profession(NURSES) %>
+
+          	<% @responses.each do |r| %>
+				<li class="list-group-item"><%= r.text %></li>
+			<% end %>
+		  </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+  <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          Paramedic Students
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse in">
+      <div class="panel-body">
+          <ul class="list-group">
+          	<% @responses = Response.to_question(q).of_profession(PARAMEDICS) %>
+
+          	<% @responses.each do |r| %>
+				<li class="list-group-item"><%= r.text %></li>
+			<% end %>
+			<br />
+		  </ul>
+      </div>
+    </div>
+  </div>
+</div>

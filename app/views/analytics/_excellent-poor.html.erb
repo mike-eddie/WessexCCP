@@ -1,0 +1,99 @@
+<div id="chartdiv<%= q %>" style="width: 100%; height: 400px;"></div>
+
+<script type="text/javascript">
+	var chart;
+
+var chartData<%= q %> = [{
+    "category": "Very Poor",
+        "medics": <%= Response.to_question(q).of_profession(MEDICS).string("Very Poor").count %>,
+        "nurses": <%= Response.to_question(q).of_profession(NURSES).string("Very Poor").count %>,
+        "paramedics": <%= Response.to_question(q).of_profession(PARAMEDICS).string("Very Poor").count %>
+}, {
+    "category": "Poor",
+        "medics": <%= Response.to_question(q).of_profession(MEDICS).string("Poor").count %>,
+        "nurses": <%= Response.to_question(q).of_profession(NURSES).string("Poor").count %>,
+        "paramedics": <%= Response.to_question(q).of_profession(PARAMEDICS).string("Poor").count %>
+}, {
+    "category": "Average",
+        "medics": <%= Response.to_question(q).of_profession(MEDICS).string("Average").count %>,
+        "nurses": <%= Response.to_question(q).of_profession(NURSES).string("Average").count %>,
+        "paramedics": <%= Response.to_question(q).of_profession(PARAMEDICS).string("Average").count %>
+}, {
+    "category": "Good",
+        "medics": <%= Response.to_question(q).of_profession(MEDICS).string("Good").count %>,
+        "nurses": <%= Response.to_question(q).of_profession(NURSES).string("Good").count %>,
+        "paramedics": <%= Response.to_question(q).of_profession(PARAMEDICS).string("Good").count %>
+}, {
+    "category": "Excellent",
+       "medics": <%= Response.to_question(q).of_profession(MEDICS).string("Excellent").count %>,
+        "nurses": <%= Response.to_question(q).of_profession(NURSES).string("Excellent").count %>,
+        "paramedics": <%= Response.to_question(q).of_profession(PARAMEDICS).string("Excellent").count %>
+}];
+
+
+AmCharts.ready(function () {
+    // SERIAL CHART
+    chart<%= q %> = new AmCharts.AmSerialChart();
+    chart<%= q %>.dataProvider = chartData<%= q %>;
+    chart<%= q %>.categoryField = "category";
+    chart<%= q %>.startDuration = 1;
+    chart<%= q %>.plotAreaBorderColor = "#DADADA";
+    chart<%= q %>.plotAreaBorderAlpha = 0;
+   
+
+    // AXES
+    // Category
+    var categoryAxis<%= q %> = chart<%= q %>.categoryAxis;
+    categoryAxis<%= q %>.gridPosition = "start";
+    categoryAxis<%= q %>.gridAlpha = 0;
+    categoryAxis<%= q %>.axisAlpha = 0;
+
+    // Value
+    var valueAxis<%= q %> = new AmCharts.ValueAxis();
+    valueAxis<%= q %>.axisAlpha = 0;
+    valueAxis<%= q %>.gridAlpha = 0;
+    valueAxis<%= q %>.position = "left";
+    chart<%= q %>.addValueAxis(valueAxis<%= q %>);
+
+    // GRAPHS
+    // first graph
+    var medics<%= q %> = new AmCharts.AmGraph();
+    medics<%= q %>.type = "column";
+    medics<%= q %>.title = "Medics";
+    medics<%= q %>.valueField = "medics";
+    medics<%= q %>.balloonText = "Medics:[[value]]";
+    medics<%= q %>.lineAlpha = 0;
+    medics<%= q %>.fillColors = "#e74c3c";
+    medics<%= q %>.fillAlphas = 1;
+    chart<%= q %>.addGraph(medics<%= q %>);
+
+    // second graph
+    var nurses<%= q %> = new AmCharts.AmGraph();
+    nurses<%= q %>.type = "column";
+    nurses<%= q %>.title = "Nurses";
+    nurses<%= q %>.valueField = "nurses";
+    nurses<%= q %>.balloonText = "Nurses:[[value]]";
+    nurses<%= q %>.lineAlpha = 0;
+    nurses<%= q %>.fillColors = "#349edb";
+    nurses<%= q %>.fillAlphas = 1;
+    chart<%= q %>.addGraph(nurses<%= q %>);
+
+     // second graph
+    var paramedics<%= q %> = new AmCharts.AmGraph();
+    paramedics<%= q %>.type = "column";
+    paramedics<%= q %>.title = "Paramedics";
+    paramedics<%= q %>.valueField = "paramedics";
+    paramedics<%= q %>.balloonText = "Paramedics:[[value]]";
+    paramedics<%= q %>.lineAlpha = 0;
+    paramedics<%= q %>.fillColors = "#27ae60";
+    paramedics<%= q %>.fillAlphas = 1;
+    chart<%= q %>.addGraph(paramedics<%= q %>);
+
+    // LEGEND
+    var legend<%= q %> = new AmCharts.AmLegend();
+    chart<%= q %>.addLegend(legend<%= q %>);
+
+    // WRITE
+    chart<%= q %>.write("chartdiv<%= q %>");
+});
+</script>

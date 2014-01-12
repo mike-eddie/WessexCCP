@@ -1,19 +1,24 @@
-<%= simple_form_for(@student) do |f| %>
-  <div class = <div class="alert alert-danger">
-    <%= f.error_notification %>
-  </div>
+ <%= simple_form_for @student, :url => { :action => 'profile_complete', :controller => "students"}, :method => "post" do |s| %>
+               
+          <%= s.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :student_num %>
-    <%= f.input :fname %>
-    <%= f.input :lname %>
-    <%= f.input :university %>
-    <%= f.input :course %>
-    <%= f.input :year %>
-    <%= f.input :user_id %>
-  </div>
+          <%= s.input :student_num, :required => true, :label => "Student Number", :placeholder => "Student number - 412345678 (including library digit) or UP123456" %><br />
+               
+          <%= s.input :fname, :required => true, :label => "First Name", :placeholder => "First name" %><br />
+               
+          <%= s.input :lname, :required => true, :label => "Last Name", :placeholder => "Last name" %><br />
+               
+          <%= s.input :university, :label => "University", :collection => ["University of Southampton","University of Portsmouth"], :required => true%><br />
+               
+          <%= s.input :course, :label => "Course", :collection => ["Medicine BM4", "Medicine BM5", "Medicine BM6", "Adult Nursing", "Child Nursing", "Mental Health Nursing", "Dual Field - Adult and Child", "Dual Field - Adult and Mental Health", "Paramedic Science", "Midwifery", "Other"]  ,:required => true %><br />
+               
+          <%= s.input :year, :label => "Year", :collection => ["0","1","2","3","4","5","Intercalated"], :required => true %><br />
 
-  <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-  </div>
-<% end %>
+          <%= s.hidden_field :user_id %>
+
+          <div class="form-actions">
+               <%= s.button :submit, "Complete Profile", :class => 'btn btn-nephritis btn-block' %>
+          </div>
+
+     <% end %>
+

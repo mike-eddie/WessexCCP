@@ -20,7 +20,6 @@ class AnalyticsController < ApplicationController
   #end
 
   def get_data(question,year,profession)
-    debugger
     @responses = Response.to_question(question).in_year(year).of_profession(profession)
     return @responses
   end

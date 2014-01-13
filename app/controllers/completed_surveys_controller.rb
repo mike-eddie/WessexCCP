@@ -51,13 +51,6 @@ class CompletedSurveysController < ApplicationController
   # POST /completed_surveys
   # POST /completed_surveys.json
   def create
-    notification = {
-        device_tokens: ["45DC0C40541AB72A5F5470A21B1590A2E738C91B53EFAE4984CC1F0589028254"],
-        alert: "Something really awesome just happened!!",
-        sound: "default",
-        badge: 1
-      }
-      ZeroPush.notify(notification)
 
     @completed_survey = CompletedSurvey.new(params[:completed_survey])
     @completed_survey.complete = true
@@ -67,7 +60,6 @@ class CompletedSurveysController < ApplicationController
     
     @attendance = Attendance.where("student_id = ? AND teaching_session_id = ?", params[:completed_survey][:student_num], @survey.teaching_session_id).first
     @attendance.fb_complete = true
-    debugger
     @attendance.completed_survey_id = @completed_survey.id
     @attendance.update_attributes(params[:attendance])
 

@@ -16,4 +16,9 @@ module ApplicationHelper
   		d = Date.parse(date.to_s).strftime("%d/%m/%Y").to_s
   		return d
 	end
+
+	def ntime(date)
+  		d = Time.parse(date.to_s).strftime("%H:%M").to_s
+  		return d
+	end
 end

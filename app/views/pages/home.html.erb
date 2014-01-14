@@ -78,7 +78,7 @@
                    data-html="true"
                    data-title= "<%= e.title %>"
                    data-content= "<strong>Date:</strong> <%= longdate(e.start_time) %>       <br/><br/>
-                                  <strong>Time:</strong>                           <br/><br/>
+                                  <strong>Time:</strong> <%= ntime(e.start_time) %> - <%= ntime(e.end_time) %>                         <br/><br/>
                                   <strong>Location:</strong> <%= e.where %>     <br/><br/>
                                   <strong>Description:</strong> <%= e.content %>
                    " >

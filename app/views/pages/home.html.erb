@@ -1,1 +1,102 @@
 <h1>Home</h1>
+
+<div class = "row">
+  <div class = "col-md-6">
+
+    <h3>Important News</h3><br />
+
+    <% @pinned.each do |p| %>
+
+      
+      <div class = "panel panel-<%= p.colour %>">
+          <div class = "panel-heading"><h3 class ="panel-title"><%= p.title %></h3></div>
+          <div class = "panel-body">
+              <%= raw p.content %>
+
+              <br />
+              <br />
+            
+              <% if p.btn == true %>
+                <a href="<%= p.btnlink %>" class="btn btn-<%= p.colour %> btn-sm" role="button"><%= p.btntext %></a>
+              <% end %>
+              
+          </div>
+        
+      </div>
+      
+    <% end %>
+
+    <h3>Other News</h3><br />
+
+    <% @articles.each do |a| %>
+
+    <% if a.pin != true %>
+      
+      <div class = "panel panel-<%= a.colour %>">
+          <div class = "panel-heading"><h3 class ="panel-title"><%= a.title %></h3></div>
+          <div class = "panel-body">
+              <%= raw a.content %>
+
+              <br />
+              <br />
+            
+              <% if a.btn == true %>
+                <a href="<%= a.btnlink %>" class="btn btn-<%= a.colour %> btn-sm" role="button"><%= a.btntext %></a>
+              <% end %>
+              
+          </div>
+        
+      </div>
+
+    <% end %>
+
+    <% end %>
+
+    <% if @articles.empty? %>
+    No news articles
+    <% end %>
+
+  </div>
+
+  <div class = "col-md-6">
+    <h3>Upcoming Events</h3><br />
+
+    <div class = "panel panel-emerald">
+      <div class = "panel-heading"><h3 class ="panel-title"><i class ="fa fa-calendar"></i>     Upcoming Events</h3></div>
+          <div class = "panel-body">
+
+            Hover over the events for more information. 
+            <br />
+            <br />
+
+            <ul><% @list.each do |e| %>
+
+              <li>
+                <a data-toggle="popover"
+                   data-placement="right"
+                   data-trigger="hover"
+                   data-html="true"
+                   data-title= "<%= e.title %>"
+                   data-content= "<strong>Date:</strong> <%= longdate(e.start_time) %>       <br/><br/>
+                                  <strong>Time:</strong>                           <br/><br/>
+                                  <strong>Location:</strong> <%= e.where %>     <br/><br/>
+                                  <strong>Description:</strong> <%= e.content %>
+                   " >
+                <%= e.title %> - <%= shortdate(e.start_time) %></a>
+              </li>
+              <br />
+            <% end %></ul>
+          </div>
+    </div>
+  </div>
+</div>
+
+<br />
+
+<%= @attendances %> 
+
+<script type="text/javascript">
+      $('[data-toggle="popover"]').popover();
+</script> 
+
+

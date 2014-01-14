@@ -8,16 +8,16 @@ class PagesController < ApplicationController
     @articles = Article.last(5)
     @pinned = Article.find(:all, :conditions => ["pin =true"])
 
-    #service = GCal4Ruby::Service.new
-    #service.authenticate("admin@wessexccp.org", "Nursling")
-    #cal = GCal4Ruby::Calendar.find(service, "admin@wessexccp.org").first
+    service = GCal4Ruby::Service.new
+    service.authenticate("admin@wessexccp.org", "Nursling")
+    cal = GCal4Ruby::Calendar.find(service, "admin@wessexccp.org").first
 
-    #@events = GCal4Ruby::Event.find(service, "admin@wessexccp.org", {
-        #:calendar => cal.id, 'start-min' => Time.parse(Date.today.to_s).utc.xmlschema,
-        #'start-max' => Time.parse("01/09/2014").utc.xmlschema
-    #})
+    @events = GCal4Ruby::Event.find(service, "admin@wessexccp.org", {
+        :calendar => cal.id, 'start-min' => Time.parse(Date.today.to_s).utc.xmlschema,
+        'start-max' => Time.parse("01/09/2014").utc.xmlschema
+    })
 
-    #@list = @events.sort_by &:start_time
+    @list = @events.sort_by &:start_time
 
 
   end

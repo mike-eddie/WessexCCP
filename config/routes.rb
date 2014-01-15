@@ -1,4 +1,7 @@
 WessexCCP::Application.routes.draw do
+  resources :admins
+
+
   get "analytics/feedback"
 
   get "feedback/complete"
@@ -53,6 +56,10 @@ WessexCCP::Application.routes.draw do
 
 
   resources :students do
+    collection { post :import, :profile_complete }
+  end
+
+  resources :admins do
     collection { post :import, :profile_complete }
   end
 

@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_one :student, :inverse_of => :user, :autosave => true
   accepts_nested_attributes_for :student
 
+  has_one :admin, :inverse_of => :user, :autosave => true
+
   has_one :clinician, :inverse_of => :user, :autosave => true
   accepts_nested_attributes_for :clinician
 

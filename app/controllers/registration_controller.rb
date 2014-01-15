@@ -7,12 +7,20 @@ class RegistrationController < ApplicationController
 
   	if @user.complete != true
 
-		  @student = Student.new
-  		@student.user_id = current_user.id
+		  if @user.role == "Student"
+        @student = Student.new
+  		  @student.user_id = current_user.id
+      end
       
+      if @user.role == "Teacher"
+  		  @clinician = Clinician.new
+  		  @clinician.user_id = current_user.id
+      end
 
-  		@clinician = Clinician.new
-  		@clinician.user_id = current_user.id
+      if @user.role == "Admin"
+        @admin = Admin.new
+        @admin.user_id = current_user.id
+      end
 
   	else
 

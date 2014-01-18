@@ -12,10 +12,9 @@ class ApplicationController < ActionController::Base
   def fb_waiting
   	  if student?
    		@current_student = current_user.student
-   		#@fb_not_required = current_user.student.attendances.teaching_sessions.find(:all, :conditions => ["fb_not_required = true"])
    		
-   		@fb_waiting = @current_student.attendances.teaching_sessions.where("fb_complete = true")
-   		@fb_not_required = @current_student.attendances.where("fb_not_required = true")
+   		@fb_waiting = @current_student.attendances.where("fb_complete = true")
+   		@fb_not_required = @current_student.attendances.teaching_sessions.where("fb_not_required = true")
    	 	count = (@current_student.attendances.count() - @fb_waiting.count() - @fb_not_required.count()) 
    	 	return count
   	  end

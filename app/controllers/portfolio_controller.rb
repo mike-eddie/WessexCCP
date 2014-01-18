@@ -17,6 +17,8 @@ class PortfolioController < ApplicationController
     
     @current_student = current_user.student
 
+    
+
   end
 
   def generate_certificate()

@@ -42,13 +42,17 @@
 
 		         <td>
 		            <% if builder.fb_complete != true %>
-		         	  	<% if builder.teaching_session.survey.nil?  %>
+		         	  	<% if builder.teaching_session.fb_not_required == true  %>
 		         	  		<%= link_to 'Certificate', attendance_path(builder,format: "pdf"), class: "btn btn-belieze btn-xs" %>
 		         	  	<% else %>
-		         	  		<%= link_to "Feedback", 
-		         	  		    new_completed_survey_path(:student_num => me.student_num,
+		         	  		<% unless builder.teaching_session.survey.nil? %>
+		         	  			<%= link_to "Feedback", 
+		         	  		    	new_completed_survey_path(:student_num => me.student_num,
 		         	  								  :survey_id => builder.teaching_session.survey.id), 
-		         	  		    class: "btn btn-wisteria btn-xs"  %>
+		         	  		    					  class: "btn btn-wisteria btn-xs"  %>
+		         	  		<% else %>
+		         	  			Awaiting Feedback Survey
+		         	  		<% end %>
 		         	  	<% end %>
 		         	<% else %>
 		         		<%= link_to 'Certificate', attendance_path(builder,format: "pdf"), class: "btn btn-belieze btn-xs" %>

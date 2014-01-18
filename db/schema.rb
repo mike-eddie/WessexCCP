@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140114185406) do
+ActiveRecord::Schema.define(:version => 20140118181023) do
 
   create_table "admins", :force => true do |t|
     t.integer  "user_id"
@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(:version => 20140114185406) do
     t.string   "format"
     t.integer  "teaching_format_id"
     t.integer  "survey_id"
+    t.boolean  "fb_not_required"
   end
 
   create_table "themes", :force => true do |t|

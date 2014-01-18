@@ -5,27 +5,32 @@
 
 var chartData<%= q %> = [{
     "category": "Very Poor",
+        "all": <%= Response.to_question(q).string("Very Poor").count %>,
         "medics": <%= Response.to_question(q).of_profession(MEDICS).string("Very Poor").count %>,
         "nurses": <%= Response.to_question(q).of_profession(NURSES).string("Very Poor").count %>,
         "paramedics": <%= Response.to_question(q).of_profession(PARAMEDICS).string("Very Poor").count %>
 }, {
     "category": "Poor",
+        "all": <%= Response.to_question(q).string("Poor").count %>,
         "medics": <%= Response.to_question(q).of_profession(MEDICS).string("Poor").count %>,
         "nurses": <%= Response.to_question(q).of_profession(NURSES).string("Poor").count %>,
         "paramedics": <%= Response.to_question(q).of_profession(PARAMEDICS).string("Poor").count %>
 }, {
     "category": "Average",
+        "all": <%= Response.to_question(q).string("Average").count %>,
         "medics": <%= Response.to_question(q).of_profession(MEDICS).string("Average").count %>,
         "nurses": <%= Response.to_question(q).of_profession(NURSES).string("Average").count %>,
         "paramedics": <%= Response.to_question(q).of_profession(PARAMEDICS).string("Average").count %>
 }, {
     "category": "Good",
+        "all": <%= Response.to_question(q).string("Good").count %>,
         "medics": <%= Response.to_question(q).of_profession(MEDICS).string("Good").count %>,
         "nurses": <%= Response.to_question(q).of_profession(NURSES).string("Good").count %>,
         "paramedics": <%= Response.to_question(q).of_profession(PARAMEDICS).string("Good").count %>
 }, {
     "category": "Excellent",
-       "medics": <%= Response.to_question(q).of_profession(MEDICS).string("Excellent").count %>,
+        "all": <%= Response.to_question(q).string("Excellent").count %>,
+        "medics": <%= Response.to_question(q).of_profession(MEDICS).string("Excellent").count %>,
         "nurses": <%= Response.to_question(q).of_profession(NURSES).string("Excellent").count %>,
         "paramedics": <%= Response.to_question(q).of_profession(PARAMEDICS).string("Excellent").count %>
 }];
@@ -56,7 +61,19 @@ AmCharts.ready(function () {
     chart<%= q %>.addValueAxis(valueAxis<%= q %>);
 
     // GRAPHS
-    // first graph
+
+    // all graph
+    var all<%= q %> = new AmCharts.AmGraph();
+    all<%= q %>.type = "column";
+    all<%= q %>.title = "All";
+    all<%= q %>.valueField = "all";
+    all<%= q %>.balloonText = "All:[[value]]";
+    all<%= q %>.lineAlpha = 0;
+    all<%= q %>.fillColors = "#e67e22";
+    all<%= q %>.fillAlphas = 1;
+    chart<%= q %>.addGraph(all<%= q %>);
+    
+    // medics graph
     var medics<%= q %> = new AmCharts.AmGraph();
     medics<%= q %>.type = "column";
     medics<%= q %>.title = "Medics";
@@ -65,9 +82,10 @@ AmCharts.ready(function () {
     medics<%= q %>.lineAlpha = 0;
     medics<%= q %>.fillColors = "#e74c3c";
     medics<%= q %>.fillAlphas = 1;
+    medics<%= q %>.hidden = true;
     chart<%= q %>.addGraph(medics<%= q %>);
 
-    // second graph
+    // nurses graph
     var nurses<%= q %> = new AmCharts.AmGraph();
     nurses<%= q %>.type = "column";
     nurses<%= q %>.title = "Nurses";
@@ -76,9 +94,10 @@ AmCharts.ready(function () {
     nurses<%= q %>.lineAlpha = 0;
     nurses<%= q %>.fillColors = "#349edb";
     nurses<%= q %>.fillAlphas = 1;
+    nurses<%= q %>.hidden = true;
     chart<%= q %>.addGraph(nurses<%= q %>);
 
-     // second graph
+     // paramedics graph
     var paramedics<%= q %> = new AmCharts.AmGraph();
     paramedics<%= q %>.type = "column";
     paramedics<%= q %>.title = "Paramedics";
@@ -87,6 +106,7 @@ AmCharts.ready(function () {
     paramedics<%= q %>.lineAlpha = 0;
     paramedics<%= q %>.fillColors = "#27ae60";
     paramedics<%= q %>.fillAlphas = 1;
+    paramedics<%= q %>.hidden = true;
     chart<%= q %>.addGraph(paramedics<%= q %>);
 
     // LEGEND

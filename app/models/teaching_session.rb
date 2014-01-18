@@ -1,5 +1,5 @@
 class TeachingSession < ActiveRecord::Base
-  attr_accessible :date, :title, :teaching_format_id
+  attr_accessible :date, :title, :teaching_format_id, :fb_not_required
 
   has_many :attendances
   has_many :students, through: :attendances

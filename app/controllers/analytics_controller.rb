@@ -12,7 +12,7 @@ class AnalyticsController < ApplicationController
   	@questions = Question.all(:include => :survey, :conditions => { :surveys => { :id => params[:survey_id] } })
   	@questions.sort! { |a,b| a.qorder <=> b.qorder }
     @attendances = Attendance.at_event(2)
-    @response_rate = (@attendances.where("fb_complete = true").count() / @attendances.count) * 100
+    @response_rate = (Attendance.at_event(2).where("fb_complete = true").count() / @attendances.count) * 100
 
   end
 

@@ -30,7 +30,7 @@ var ychartData = [{
       "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(4).of_profession(PARAMEDICS).count %>
 }, {
     "category": "Year 5",
-    "all": <%= Attendance.at_event(@survey.teaching_session.id).in_year(5).count %>,
+     "all": <%= Attendance.at_event(@survey.teaching_session.id).in_year(5).count %>,
      "medics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(5).of_profession(MEDICS).count %> ,
      "nurses": <%= Attendance.at_event(@survey.teaching_session.id).in_year(5).of_profession(NURSES).count %>,
      "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(5).of_profession(PARAMEDICS).count %>
@@ -64,7 +64,7 @@ AmCharts.ready(function () {
     // GRAPHS
 
     // all graph
-    var all = new AmCharts.AmGraph();
+    var yall = new AmCharts.AmGraph();
     yall.type = "column";
     yall.title = "All";
     yall.valueField = "all";

@@ -17,6 +17,10 @@
 	        "category": "Paramedics",
 	        "count": <%= Attendance.at_event(@survey.teaching_session.id).of_profession(PARAMEDICS).count %>
 	    }
+	    {
+	        "category": "Allied Health Professionals",
+	        "count": <%= Attendance.at_event(@survey.teaching_session.id).of_profession(PARAMEDICS).count %>
+	    }
 	];
 	
 	AmCharts.ready(function () {
@@ -29,7 +33,7 @@
 	    profpiechart.outlineAlpha = 0.8;
 	    profpiechart.outlineThickness = 2;
 	    profpiechart.balloonText = "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>";
-	    profpiechart.colors = ["#e74c3c", "#349edb", "#27ae60"]
+	    profpiechart.colors = ["#e74c3c", "#349edb", "#27ae60", "#9b59b6"]
 	    
 	    // WRITE
 	    profpiechart.write("profchartdiv");

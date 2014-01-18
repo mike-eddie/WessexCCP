@@ -9,31 +9,36 @@ var ychartData = [{
       "all": <%= Attendance.at_event(@survey.teaching_session.id).in_year(1).count %>,
       "medics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(1).of_profession(MEDICS).count %>,
       "nurses": <%= Attendance.at_event(@survey.teaching_session.id).in_year(1).of_profession(NURSES).count %>,
-      "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(1).of_profession(PARAMEDICS).count %>
+      "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(1).of_profession(PARAMEDICS).count %>,
+      "ahps": <%= Attendance.at_event(@survey.teaching_session.id).in_year(1).of_profession(AHPS).count %>
 }, {
     "category": "Year 2",
       "all": <%= Attendance.at_event(@survey.teaching_session.id).in_year(2).count %>,
       "medics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(2).of_profession(MEDICS).count %>,
       "nurses": <%= Attendance.at_event(@survey.teaching_session.id).in_year(2).of_profession(NURSES).count %>,
-      "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(2).of_profession(PARAMEDICS).count %>
+      "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(2).of_profession(PARAMEDICS).count %>,
+      "ahps": <%= Attendance.at_event(@survey.teaching_session.id).in_year(2).of_profession(AHPS).count %>
 }, {
     "category": "Year 3",
       "all": <%= Attendance.at_event(@survey.teaching_session.id).in_year(3).count %>,
       "medics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(3).of_profession(MEDICS).count %>,
       "nurses": <%= Attendance.at_event(@survey.teaching_session.id).in_year(3).of_profession(NURSES).count %>,
-      "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(3).of_profession(PARAMEDICS).count %>
+      "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(3).of_profession(PARAMEDICS).count %>,
+      "ahps": <%= Attendance.at_event(@survey.teaching_session.id).in_year(3).of_profession(AHPS).count %>
 }, {
     "category": "Year 4",
       "all": <%= Attendance.at_event(@survey.teaching_session.id).in_year(4).count %>,
       "medics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(4).of_profession(MEDICS).count %>,
       "nurses": <%= Attendance.at_event(@survey.teaching_session.id).in_year(4).of_profession(NURSES).count %>,
-      "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(4).of_profession(PARAMEDICS).count %>
+      "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(4).of_profession(PARAMEDICS).count %>,
+      "ahps": <%= Attendance.at_event(@survey.teaching_session.id).in_year(4).of_profession(AHPS).count %>
 }, {
     "category": "Year 5",
      "all": <%= Attendance.at_event(@survey.teaching_session.id).in_year(5).count %>,
      "medics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(5).of_profession(MEDICS).count %> ,
      "nurses": <%= Attendance.at_event(@survey.teaching_session.id).in_year(5).of_profession(NURSES).count %>,
-     "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(5).of_profession(PARAMEDICS).count %>
+     "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(5).of_profession(PARAMEDICS).count %>,
+     "ahps": <%= Attendance.at_event(@survey.teaching_session.id).in_year(5).of_profession(AHPS).count %>
 }];
 
 
@@ -109,6 +114,18 @@ AmCharts.ready(function () {
     yparamedics.fillAlphas = 1;
     yparamedics.hidden = true;
     ychart.addGraph(yparamedics);
+
+    // allied health graph
+    var yahps = new AmCharts.AmGraph();
+    yahps.type = "column";
+    yahps.title = "Allied Health";
+    yahps.valueField = "ahps";
+    yahps.balloonText = "Allied Health ([[category]]):[[value]]";
+    yahps.lineAlpha = 0;
+    yahps.fillColors = "#9b59b6";
+    yahps.fillAlphas = 1;
+    yahps.hidden = true;
+    ychart.addGraph(yahps);
 
     // LEGEND
     var ylegend = new AmCharts.AmLegend();

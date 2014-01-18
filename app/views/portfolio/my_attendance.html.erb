@@ -34,7 +34,7 @@
 	 		<th width = "10%">Title</th>
 	 		<th width = "10%">Feedback & Certificates </th>
 	 	  </tr>
-	 	<% me.attendances.sort! { |a,b| a.date <=> b.date } %>
+	 	<% me.attendances.sort! { |a,b| a.teaching_session.date <=> b.teaching_session.date } %>
     	<% me.attendances.each do |builder| %>
 	    	<% if builder.teaching_session.teaching_format.format == n.format %>
 		       <tr>

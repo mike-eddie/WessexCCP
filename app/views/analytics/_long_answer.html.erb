@@ -2,12 +2,12 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="medicscollapse<%= q %>">
+        <a data-toggle="collapse" data-parent="#accordion" href="#medicscollapse<%= q %>">
           Medical Students
         </a>
       </h4>
     </div>
-    <div id="medicscollapse<%= q %>" class="panel-collapse collapse in">
+    <div id="#medicscollapse<%= q %>" class="panel-collapse collapse in">
       <div class="panel-body">
           <ul class="list-group">
           	<% @responses = Response.to_question(q).of_profession(MEDICS) %>
@@ -24,12 +24,12 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="nursescollapse<%= q %>">
+        <a data-toggle="collapse" data-parent="#accordion" href="#nursescollapse<%= q %>">
           Nursing Students
         </a>
       </h4>
     </div>
-    <div id="nursescollapse<%= q %>" class="panel-collapse collapse in">
+    <div id="#nursescollapse<%= q %>" class="panel-collapse collapse in">
       <div class="panel-body">
           <ul class="list-group">
           	<% @responses = Response.to_question(q).of_profession(NURSES) %>
@@ -46,12 +46,12 @@
   <div class="panel panel-default">
   <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="paracollapse<%= q %>">
+        <a data-toggle="collapse" data-parent="#accordion" href="#paracollapse<%= q %>">
           Paramedic Students
         </a>
       </h4>
     </div>
-    <div id="paracollapse<%= q %>" class="panel-collapse collapse in">
+    <div id="#paracollapse<%= q %>" class="panel-collapse collapse in">
       <div class="panel-body">
           <ul class="list-group">
           	<% @responses = Response.to_question(q).of_profession(PARAMEDICS) %>

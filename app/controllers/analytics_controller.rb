@@ -11,19 +11,16 @@ class AnalyticsController < ApplicationController
   	@survey = Survey.find(params[:survey_id])
   	@questions = Question.all(:include => :survey, :conditions => { :surveys => { :id => params[:survey_id] } })
   	@questions.sort! { |a,b| a.qorder <=> b.qorder }
+    @attendances = Attendance.at_event(@survey.teaching_session_id
+    @response_rate = @attendances.where("fb_complete = true").count() / @attendances.count
 
   end
 
-  #def collate_responses(q)
-  	#@responses = Response.to_question(q.id)
-    #return @responses
-  #end
 
   def get_data(question,year,profession)
     @responses = Response.to_question(question).in_year(year).of_profession(profession)
     return @responses
   end
-
 
 
   def categorise_responses()

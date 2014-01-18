@@ -1,12 +1,3 @@
-<!--Nurses: <%= Attendance.at_event(@survey.teaching_session.id).of_profession(NURSES).count %><br />
-Paramedics: <%= Attendance.at_event(@survey.teaching_session.id).of_profession(PARAMEDICS).count %><br/>
-<br />
-Year 1: <%= Attendance.at_event(@survey.teaching_session.id).in_year(1).count %><br />
-Year 2: <%= Attendance.at_event(@survey.teaching_session.id).in_year(2).count %><br />
-Year 3: <%= Attendance.at_event(@survey.teaching_session.id).in_year(3).count %><br />
-Year 4: <%= Attendance.at_event(@survey.teaching_session.id).in_year(4).count %><br />
-Year 5: <%= Attendance.at_event(@survey.teaching_session.id).in_year(5).count %><br />-->
-
 <div class = "row">
 	<div class = "col-md-6">
 		<%= render "professions" %>

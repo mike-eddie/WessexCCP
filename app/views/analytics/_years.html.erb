@@ -6,26 +6,31 @@
 
 var ychartData = [{
     "category": "Year 1",
+      "all": <%= Attendance.at_event(@survey.teaching_session.id).in_year(1).count %>,
       "medics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(1).of_profession(MEDICS).count %>,
       "nurses": <%= Attendance.at_event(@survey.teaching_session.id).in_year(1).of_profession(NURSES).count %>,
       "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(1).of_profession(PARAMEDICS).count %>
 }, {
     "category": "Year 2",
+      "all": <%= Attendance.at_event(@survey.teaching_session.id).in_year(2).count %>,
       "medics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(2).of_profession(MEDICS).count %>,
       "nurses": <%= Attendance.at_event(@survey.teaching_session.id).in_year(2).of_profession(NURSES).count %>,
       "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(2).of_profession(PARAMEDICS).count %>
 }, {
     "category": "Year 3",
+      "all": <%= Attendance.at_event(@survey.teaching_session.id).in_year(3).count %>,
       "medics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(3).of_profession(MEDICS).count %>,
       "nurses": <%= Attendance.at_event(@survey.teaching_session.id).in_year(3).of_profession(NURSES).count %>,
       "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(3).of_profession(PARAMEDICS).count %>
 }, {
     "category": "Year 4",
+      "all": <%= Attendance.at_event(@survey.teaching_session.id).in_year(4).count %>,
       "medics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(4).of_profession(MEDICS).count %>,
       "nurses": <%= Attendance.at_event(@survey.teaching_session.id).in_year(4).of_profession(NURSES).count %>,
       "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(4).of_profession(PARAMEDICS).count %>
 }, {
     "category": "Year 5",
+    "all": <%= Attendance.at_event(@survey.teaching_session.id).in_year(5).count %>,
      "medics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(5).of_profession(MEDICS).count %> ,
      "nurses": <%= Attendance.at_event(@survey.teaching_session.id).in_year(5).of_profession(NURSES).count %>,
      "paramedics": <%= Attendance.at_event(@survey.teaching_session.id).in_year(5).of_profession(PARAMEDICS).count %>
@@ -57,7 +62,19 @@ AmCharts.ready(function () {
     ychart.addValueAxis(yvalueAxis);
 
     // GRAPHS
-    // first graph
+
+    // all graph
+    var all = new AmCharts.AmGraph();
+    yall.type = "column";
+    yall.title = "All";
+    yall.valueField = "all";
+    yall.balloonText = "All Professions ([[category]]):[[value]]";
+    yall.lineAlpha = 0;
+    yall.fillColors = "#2ecc71";
+    yall.fillAlphas = 1;
+    ychart.addGraph(yall);
+
+    // medics graph
     var ymedics = new AmCharts.AmGraph();
     ymedics.type = "column";
     ymedics.title = "Medics";
@@ -68,7 +85,7 @@ AmCharts.ready(function () {
     ymedics.fillAlphas = 1;
     ychart.addGraph(ymedics);
 
-    // second graph
+    // nurses graph
     var ynurses = new AmCharts.AmGraph();
     ynurses.type = "column";
     ynurses.title = "Nurses";
@@ -79,7 +96,7 @@ AmCharts.ready(function () {
     ynurses.fillAlphas = 1;
     ychart.addGraph(ynurses);
 
-     // second graph
+     // paramedics graph
     var yparamedics = new AmCharts.AmGraph();
     yparamedics.type = "column";
     yparamedics.title = "Paramedics";

@@ -66,4 +66,27 @@
       </div>
     </div>
   </div>
+  <div class="panel panel-default">
+  <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#ahpcollapse<%= q %>">
+          Allied Health & Others
+        </a>
+      </h4>
+    </div>
+    <div id="#ahpcollapse<%= q %>" class="panel-collapse collapse in">
+      <div class="panel-body">
+          <ul class="list-group">
+            <% @responses = Response.to_question(q).of_profession(AHPS) %>
+
+            <% @responses.each do |r| %>
+               <% unless r.text.empty? %>  
+                <li class="list-group-item"><%= r.text %></li>
+              <% end %>
+            <% end %>
+      <br />
+      </ul>
+      </div>
+    </div>
+  </div>
 </div>

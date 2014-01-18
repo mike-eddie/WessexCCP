@@ -13,8 +13,10 @@
           	<% @responses = Response.to_question(q).of_profession(MEDICS) %>
 
           	<% @responses.each do |r| %>
-				<li class="list-group-item"><%= r.text %></li>
-			<% end %>
+              <% unless r.text.empty? %>
+				        <li class="list-group-item"><%= r.text %></li>
+              <% end %>
+			     <% end %>
 		  </ul>
       </div>
     </div>
@@ -33,8 +35,10 @@
           	<% @responses = Response.to_question(q).of_profession(NURSES) %>
 
           	<% @responses.each do |r| %>
-				<li class="list-group-item"><%= r.text %></li>
-			<% end %>
+               <% unless r.text.empty? %>
+				        <li class="list-group-item"><%= r.text %></li>
+			         <% end %>
+            <% end %>
 		  </ul>
       </div>
     </div>
@@ -53,8 +57,10 @@
           	<% @responses = Response.to_question(q).of_profession(PARAMEDICS) %>
 
           	<% @responses.each do |r| %>
-				<li class="list-group-item"><%= r.text %></li>
-			<% end %>
+				       <% unless r.text.empty? %>  
+                <li class="list-group-item"><%= r.text %></li>
+              <% end %>
+			      <% end %>
 			<br />
 		  </ul>
       </div>

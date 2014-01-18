@@ -70,7 +70,7 @@ AmCharts.ready(function () {
     yall.valueField = "all";
     yall.balloonText = "All Professions ([[category]]):[[value]]";
     yall.lineAlpha = 0;
-    yall.fillColors = "#2ecc71";
+    yall.fillColors = "#e67e22";
     yall.fillAlphas = 1;
     ychart.addGraph(yall);
 
@@ -83,6 +83,7 @@ AmCharts.ready(function () {
     ymedics.lineAlpha = 0;
     ymedics.fillColors = "#e74c3c";
     ymedics.fillAlphas = 1;
+    yall.hidden = true;
     ychart.addGraph(ymedics);
 
     // nurses graph
@@ -94,6 +95,7 @@ AmCharts.ready(function () {
     ynurses.lineAlpha = 0;
     ynurses.fillColors = "#349edb";
     ynurses.fillAlphas = 1;
+    ynurses.hidden = true;
     ychart.addGraph(ynurses);
 
      // paramedics graph
@@ -105,6 +107,7 @@ AmCharts.ready(function () {
     yparamedics.lineAlpha = 0;
     yparamedics.fillColors = "#27ae60";
     yparamedics.fillAlphas = 1;
+    yparamedics.hidden = true;
     ychart.addGraph(yparamedics);
 
     // LEGEND

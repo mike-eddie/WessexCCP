@@ -233,5 +233,5 @@ DEPENDENCIES
   simple_form
   taps
   uglifier (>= 1.0.3)
-  will_paginate (~> 3.0)
+  will_paginate (~> 3.0.5)
   zero_push

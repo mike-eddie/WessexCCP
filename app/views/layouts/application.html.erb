@@ -32,21 +32,21 @@
 	  	<% if registration_complete? %>
 	  	<div class="collapse navbar-collapse navbar-ex1-collapse">
 	    	<ul class="nav navbar-nav">
-	      	<li><%= link_to "Home", root_path  %></li>
+	      	<li><%= link_to "Home", main_app.root_path  %></li>
 	      	<% if admin? %>
-	      		<li><%= link_to "News", articles_path  %></li>
+	      		<li><%= link_to "News", main_app.articles_path  %></li>
 	      	<% end %>
 	      	
 
 	      	 <li class="dropdown">
 		        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Curriculum <b class="caret"></b></a>
 		        <ul class="dropdown-menu">
-		          <li><%= link_to "Curriculum", pages_curriculum_path  %></li>
+		          <li><%= link_to "Curriculum", main_app.pages_curriculum_path  %></li>
 		          <% if admin? %>
-		          	<li><%= link_to "Units", units_path %></li>
-		          	<li><%= link_to "Themes", themes_path %></li>
-		          	<li><%= link_to "Topics", topics_path %></li>
-		          	<li><%= link_to "Outcomes", outcomes_path %></li>
+		          	<li><%= link_to "Units", main_app.units_path %></li>
+		          	<li><%= link_to "Themes", main_app.themes_path %></li>
+		          	<li><%= link_to "Topics", main_app.topics_path %></li>
+		          	<li><%= link_to "Outcomes", main_app.outcomes_path %></li>
 		          <% end %>
 		        </ul>
 		      </li>
@@ -60,7 +60,7 @@
 			    	<b class="caret"></b>
 			    </a>
 			    <ul class="dropdown-menu">
-			      <li><%= link_to "Certificates & Feedback", portfolio_my_attendance_path %></li>
+			      <li><%= link_to "Certificates & Feedback", main_app.portfolio_my_attendance_path %></li>
 			    </ul>
 			  	</li>
 			<% end %>
@@ -70,11 +70,11 @@
 		      <li class="dropdown">
 		        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
 		        <ul class="dropdown-menu">
-		          <li><%= link_to "Students", students_path %></li>
-		          <li><%= link_to "Teaching Sessions", teaching_sessions_path %></li>
-		          <li><%= link_to "Teaching Format", teaching_formats_path %></li>
-		          <li><%= link_to "Attendance", attendances_path %></li>
-		          <li><%= link_to "Create Feedback Survey", surveys_path %></li>
+		          <li><%= link_to "Students", main_app.students_path %></li>
+		          <li><%= link_to "Teaching Sessions", main_app.teaching_sessions_path %></li>
+		          <li><%= link_to "Teaching Format", main_app.teaching_formats_path %></li>
+		          <li><%= link_to "Attendance", main_app.attendances_path %></li>
+		          <li><%= link_to "Create Feedback Survey", main_app.surveys_path %></li>
 		        </ul>
 		      </li>
 		  <% end %>
@@ -85,17 +85,18 @@
 			<li class="dropdown">
 		        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-					<% if @current_user.avatar.exists? then %>
-                        <%= image_tag @current_user.avatar(:small), :class => "avatar" %>
+		        	<% begin %>
+                    	<%= image_tag @current_user.avatar(:small), :class => "avatar" %>
+                    <% rescue %>
                     <% end %>
-		        	
+                   
 
 		        	<%= current_user.student.full_name %><b class="caret"></b></a>
 		        <ul class="dropdown-menu">
 		          <li><a href="/registration/edit_profile"><i class="fa fa-user fa-fw"></i></span> Edit Profile</a></li>
 		          <li><a href="/users/edit"><i class="fa fa-edit fa-fw"></i></span> Edit Account</a></li>
 		          <li>
-		          	<%= link_to destroy_user_session_path, method: :delete do %>
+		          	<%= link_to main_app.destroy_user_session_path, method: :delete do %>
   						<i class="fa fa-sign-out fa-fw"></i> Sign Out
 					<% end %>
 		        </ul>

@@ -15,7 +15,7 @@ class Student < ActiveRecord::Base
   validates :student_num, presence: true, uniqueness: true
   
   validates :student_num, format: {
-    with: /\A[U][P]\d{6}\z|\A\d{9}\z/,
+    with: /\A[U][P]\d{6}\z|\A\d{9}\z|\A\d{7}\z|\A\d{8}\z/,
     message: 'Please ensure you have entered your student number in the correct format'
   }
 

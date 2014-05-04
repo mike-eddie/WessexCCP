@@ -14,3 +14,27 @@ ul {
 	margin: -15px 10px -14px -5px;
 
 }
+
+.forum_avatar {
+    border-radius: 50% 50% 50% 50%;
+    height: 75px;
+    width: 75px;
+	display:block;
+	margin-left:auto;
+	margin-right:auto; 
+}
+
+.post even {
+	background: #CCC;
+}
+
+.post odd {
+	
+	background: #FFF;
+
+}
+
+.name {
+	color: #3498db;
+
+}

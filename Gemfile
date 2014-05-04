@@ -32,7 +32,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'cancan'
 
-gem 'will_paginate', '~> 3.0'
+gem 'will_paginate', '~> 3.0.5'
 
 gem 'prawn'
 gem 'prawnto'
@@ -54,7 +54,6 @@ gem "paperclip", "~> 3.0"
 gem 'zero_push'
 
 gem "chartkick"
-
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

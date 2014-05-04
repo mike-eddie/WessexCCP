@@ -23,4 +23,14 @@ class User < ActiveRecord::Base
       :path => ":rails_root/app/assets/images/:attachment/:id/:style/:filename",
       :default_url => 'avatar_missing.png',
       :url => "/assets/:attachment/:id/:style/:filename"
+
+  def to_s
+    if role = "Student"
+      @student = Student.where("user_id = ?", id).first
+      name = @student.fname + " " + @student.lname
+    end
+
+    return name
+  end
+
 end

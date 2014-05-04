@@ -1,4 +1,5 @@
 WessexCCP::Application.routes.draw do
+
   resources :admins
 
 

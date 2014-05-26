@@ -69,3 +69,9 @@ gem "chartkick"
 
 # To use debugger
 gem 'debugger', group: :development
+
+group :development, :test do
+gem 'foreman'
+end
+
+gem 'mail'

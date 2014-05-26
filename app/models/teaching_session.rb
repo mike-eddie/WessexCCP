@@ -17,4 +17,11 @@ class TeachingSession < ActiveRecord::Base
       "#{date} - #{title}"
   end
 
+  def long_title_date
+    "#{title} - #{date}"
+  end
+
+  scope :of_format, lambda { |f| {:include => :teaching_format, :conditions => { :teaching_formats => { :format => f}}}}
+
+
 end

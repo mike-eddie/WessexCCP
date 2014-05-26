@@ -4,6 +4,7 @@ WessexCCP::Application.routes.draw do
 
 
   get "analytics/feedback"
+  get "analytics/home"
 
   get "feedback/complete"
 

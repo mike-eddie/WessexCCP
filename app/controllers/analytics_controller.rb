@@ -37,4 +37,15 @@ class AnalyticsController < ApplicationController
   	return data
   end
 
+  def home
+
+    @formats = TeachingFormat.all()
+
+    @lectures = TeachingSession.of_format("Lecture")
+    @workshops = TeachingSession.of_format("Workshop")
+    @courses = TeachingSession.of_format("Course")
+
+  end
+
+
 end

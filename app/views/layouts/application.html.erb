@@ -79,7 +79,12 @@
 		      </li>
 		      <li><%= link_to "View Feedback", { controller: "analytics", action: "home"}  %></li>
 		  <% end %>
+
+		  <% if teacher? %>
+		  	<li><%= link_to "View Feedback", { controller: "analytics", action: "home"}  %></li>
+		  <% end %>
 	    </ul>
+	    
 	    <ul class = "nav navbar-nav navbar-right">
 			<% if student? %>
 
@@ -102,6 +107,13 @@
 					<% end %>
 		        </ul>
 		      </li>
+			<% else %>
+
+				<li><%= link_to main_app.destroy_user_session_path, method: :delete do %>
+  						<button type="button" class="btn btn-xs btn-alizarin">Sign Out</button>
+					<% end %>
+				</li>
+
 			<% end %>
 			<% end %>
 		</ul>

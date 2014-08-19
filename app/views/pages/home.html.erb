@@ -61,34 +61,7 @@
   <div class = "col-md-6">
     <h3>Upcoming Events</h3><br />
 
-    <div class = "panel panel-emerald">
-      <div class = "panel-heading"><h3 class ="panel-title"><i class ="fa fa-calendar"></i>     Upcoming Events</h3></div>
-          <div class = "panel-body">
-
-            Hover over the events for more information. 
-            <br />
-            <br />
-
-            <ul><% @list.each do |e| %>
-
-              <li>
-                <a data-toggle="popover"
-                   data-placement="right"
-                   data-trigger="hover"
-                   data-html="true"
-                   data-title= "<%= e.title %>"
-                   data-content= "<strong>Date:</strong> <%= longdate(e.start_time) %>       <br/><br/>
-                                  <strong>Time:</strong> <%= ntime(e.start_time) %> - <%= ntime(e.end_time) %>                         <br/><br/>
-                                  <strong>Location:</strong> <%= e.where %>     <br/><br/>
-                                  <strong>Description:</strong> <%= e.content %>
-                   " >
-                <%= e.title %> - <%= shortdate(e.start_time) %></a>
-              </li>
-              <br />
-            <% end %></ul>
-          </div>
-    </div>
-  </div>
+   
 </div>
 
 <br />

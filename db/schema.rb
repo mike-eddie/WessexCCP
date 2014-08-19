@@ -54,14 +54,6 @@ ActiveRecord::Schema.define(:version => 20140118181023) do
     t.integer  "user_id"
   end
 
-  create_table "complete_surveys", :force => true do |t|
-    t.integer  "survey_id"
-    t.string   "student_num"
-    t.boolean  "complete"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
   create_table "completed_outcomes", :force => true do |t|
     t.integer  "teaching_session_id"
     t.integer  "outcome_id"
@@ -168,18 +160,18 @@ ActiveRecord::Schema.define(:version => 20140118181023) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "",               :null => false
-    t.string   "encrypted_password",     :default => "",               :null => false
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0,                :null => false
+    t.integer  "sign_in_count",          :default => 0,  :null => false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                           :null => false
-    t.datetime "updated_at",                                           :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "role"
     t.boolean  "complete"
     t.string   "avatar_file_name"
@@ -187,9 +179,6 @@ ActiveRecord::Schema.define(:version => 20140118181023) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "admin_password"
-    t.boolean  "forem_admin",            :default => false
-    t.string   "forem_state",            :default => "pending_review"
-    t.boolean  "forem_auto_subscribe",   :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

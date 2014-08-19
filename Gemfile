@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.2'
 
 gem 'rails', '3.2.14'
 
@@ -68,7 +68,7 @@ gem "chartkick"
 # gem 'capistrano'
 
 # To use debugger
-gem 'debugger', group: :development
+#gem 'debugger', group: :development
 
 group :development, :test do
 gem 'foreman'

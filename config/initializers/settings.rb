@@ -2,7 +2,7 @@
 	MEDICS = ["Medicine BM5", "Medicine BM4", "Medicine BM6"]
 	NURSES = ["Adult Nursing","Child Nursing","Dual Field - Adult and Child", "Dual Field - Adult and Mental Health", "Mental Health Nursing"]
 	PARAMEDICS = ["Paramedic Science"]
-	AHPS = ["Midwifery", "Other"]
+	AHPS = ["Midwifery", "Operating Department Practicioner", "Physiotherapy", "Other"]
 	ALL_PROFESSIONS = MEDICS + NURSES + PARAMEDICS + AHPS
 
 # Universities
